@@ -193,6 +193,12 @@
       hyphens: auto;
     }
 
+    .drop .muted[title] {
+      cursor: help;
+      text-decoration: underline dotted #b3c0d4;
+      text-underline-offset: 3px;
+    }
+
     .drop strong {
       overflow-wrap: anywhere;
     }
@@ -715,7 +721,7 @@
         <h2>Input Files</h2>
         <div class="drop">
           <strong>Upload benchmark file</strong>
-          <p class="muted">Accepts JSONL, CSV, XLSX, or ZIP. Demo: simulated BBQ-style customer-service benchmark.</p>
+          <p class="muted" title="Accepts JSONL, CSV, XLSX, or ZIP. Demo: simulated BBQ-style customer-service benchmark.">JSONL · CSV · XLSX · ZIP</p>
           <input type="file" id="fileInput" aria-label="Upload benchmark file">
         </div>
         <div class="file-chip">
@@ -724,7 +730,7 @@
         </div>
         <div class="drop">
           <strong>Upload domain dataset</strong>
-          <p class="muted">Use your target professional dataset. The backend will fuse its samples with the recommended benchmark tools.</p>
+          <p class="muted" title="Use your target professional dataset. The backend will fuse its samples with the recommended benchmark tools.">Optional — fused with selected tools</p>
           <input type="file" id="datasetInput" aria-label="Upload domain dataset">
         </div>
         <div class="file-chip">
