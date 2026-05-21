@@ -122,6 +122,16 @@
       align-self: start;
       position: sticky;
       top: 80px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .left input[type="file"],
+    .right input[type="file"] {
+      max-width: 100%;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .center {
@@ -163,13 +173,34 @@
       padding: 18px;
       min-height: 142px;
       display: grid;
+      grid-template-columns: minmax(0, 1fr);
       align-content: center;
       gap: 10px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .drop > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .drop .muted {
+      max-width: 100%;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .drop strong {
+      overflow-wrap: anywhere;
     }
 
     .file-chip {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 8px;
       border: 1px solid #cfdae9;
       background: #fff;
@@ -177,6 +208,23 @@
       padding: 8px 10px;
       font-size: 13px;
       margin-top: 12px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .file-chip > span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .file-chip > span:first-child {
+      flex: 1 1 auto;
+    }
+
+    .file-chip > span:last-child {
+      flex: 0 0 auto;
     }
 
     .file-chip + .drop {
@@ -667,7 +715,7 @@
         <h2>Input Files</h2>
         <div class="drop">
           <strong>Upload benchmark file</strong>
-          <p class="muted">Accepts JSONL, CSV, XLSX, or ZIP. This demo uses a simulated BBQ-style customer-service benchmark.</p>
+          <p class="muted">Accepts JSONL, CSV, XLSX, or ZIP. Demo: simulated BBQ-style customer-service benchmark.</p>
           <input type="file" id="fileInput" aria-label="Upload benchmark file">
         </div>
         <div class="file-chip">
