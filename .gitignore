@@ -29,3 +29,12 @@ env/
 *.key
 *.pem
 secrets.json
+AccessKey.csv
+.dashscope_key
+*.log
+*.pid
+
+# Working artifacts
+*.raw.jsonl
+*.backup*
+__pycache__/

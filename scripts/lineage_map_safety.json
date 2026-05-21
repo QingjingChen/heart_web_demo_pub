@@ -1,0 +1,218 @@
+{
+  "_doc": "Safety benchmark lineage. Each entry: short_name, year, family, critiques_received (paraphrased), self_acknowledged_limits.",
+
+  "13232": {
+    "short_name": "RealToxicityPrompts",
+    "year": 2020,
+    "family": "toxicity-generation",
+    "is_benchmark": true,
+    "note": "100k web prompts each labeled with continuation toxicity (Perspective API), used to evaluate neural toxic degeneration in LMs. Foundational benchmark.",
+    "critiques_received": [
+      "ToxiGen (2022): RealToxicityPrompts captures only explicit toxic completions; misses implicit hate; relies entirely on Perspective API which has demographic bias.",
+      "ToxicChat (2023): web-scraped prompts ≠ real user-LLM conversation distribution.",
+      "HarmBench (2024): toxicity prompts ≠ harmful behavior elicitation; doesn't test safe-completion vs over-refusal.",
+      "Blodgett-style critique: 'toxicity' construct underspecified by Perspective API."
+    ],
+    "self_acknowledged_limits": "Authors flag that Perspective API may have biases against AAVE; web-scraped prompts have demographic skew."
+  },
+  "13223": {
+    "short_name": "HateCheck",
+    "year": 2021,
+    "family": "hate-speech-functional",
+    "is_benchmark": true,
+    "note": "Functional tests for hate speech classifiers — 3,728 cases × 29 functionalities × 7 protected groups (women, trans, gay, Black, disabled, Muslim, immigrant). Diagnostic, not corpus.",
+    "critiques_received": [
+      "ToxiGen (2022): functional templates are synthetic; miss generative-model-produced implicit hate.",
+      "ToxicChat (2023): English-only and template-based; doesn't capture real user conversational toxicity.",
+      "Multilingual HateCheck (later): English-only original is a coverage gap."
+    ],
+    "self_acknowledged_limits": "Authors note English-only; protected groups are limited to 7; functionalities don't cover code-mixing or multimodal hate."
+  },
+  "13218": {
+    "short_name": "ToxiGen",
+    "year": 2022,
+    "family": "implicit-hate-generation",
+    "is_benchmark": true,
+    "note": "274k machine-generated (GPT-3 ALICE) statements covering 13 minority groups, balanced implicit/explicit hate vs neutral. Addresses RealToxicityPrompts' explicit-only gap.",
+    "critiques_received": [
+      "ToxicChat (2023): GPT-3-generated content ≠ real user posts; distribution shift.",
+      "HateCheck-style critique: machine-generated implicit hate may not generalize to organic implicit hate.",
+      "HarmBench (2024): focused on classifier benchmark; doesn't test LLM safety responses."
+    ],
+    "self_acknowledged_limits": "Authors flag GPT-3 training data leakage risk and that machine-generated hate has different distribution from organic hate."
+  },
+  "13279": {
+    "short_name": "ToxicChat",
+    "year": 2023,
+    "family": "real-conversation-toxicity",
+    "is_benchmark": true,
+    "note": "10,166 human-LLM conversations from Vicuna online demo, manually annotated for toxicity. First real-user-LLM conversation toxicity benchmark.",
+    "critiques_received": [
+      "Authors of follow-up: OpenAI Moderation API agreement with ToxicChat is low — moderator API biased.",
+      "HarmBench (2024): conversation-only; lacks systematic red-teaming attacks.",
+      "MM-SafetyBench (2024): English-only, no multimodal."
+    ],
+    "self_acknowledged_limits": "Authors flag that Vicuna-only data may not generalize to other LLMs; English-only; user demographics unknown."
+  },
+  "13235": {
+    "short_name": "LifeTox",
+    "year": 2024,
+    "family": "implicit-life-advice-toxicity",
+    "is_benchmark": true,
+    "note": "87k Reddit-derived posts about life advice contexts, evaluating implicit toxicity (manipulation, gaslighting, harmful normalization) that misses Perspective-API.",
+    "critiques_received": [
+      "SALAD-bench (2024): single-axis (life advice) limits coverage.",
+      "ToxicChat-style critique: Reddit ≠ chat conversation distribution.",
+      "Wang Chinese 2024 critique: English-only Reddit doesn't address non-English implicit toxicity."
+    ],
+    "self_acknowledged_limits": "Authors flag Reddit demographic skew (young Western males); English only; implicit-toxicity ground truth labor-intensive."
+  },
+  "13210": {
+    "short_name": "Do-not-answer",
+    "year": 2024,
+    "family": "safeguard-eval-MCQ",
+    "is_benchmark": true,
+    "note": "939 prompts that responsible LLMs should refuse, taxonomized into 5 risk areas × 12 harm types × 61 specific risk types. Includes information hazards, malicious uses, discrimination, misinformation, human-chatbot interaction harms.",
+    "critiques_received": [
+      "SALAD-bench (2024): 939 prompts is small; categories not hierarchical enough.",
+      "HarmBench (2024): single-turn refusal evaluation doesn't cover sophisticated jailbreaks.",
+      "Wang Chinese 2024: English-only; categories need localization for Chinese context.",
+      "XSTest (2024) family: doesn't test over-refusal of safe-but-similar prompts."
+    ],
+    "self_acknowledged_limits": "Authors note English; category hierarchy may not generalize; LLM-as-judge for refusal classification may be biased."
+  },
+  "13252": {
+    "short_name": "FFT",
+    "year": 2024,
+    "family": "multi-axis-harmless",
+    "is_benchmark": true,
+    "note": "Multi-axis harmlessness benchmark covering Factuality, Fairness, Toxicity (FFT). 2116 questions across the three axes for Chinese LLM evaluation.",
+    "critiques_received": [
+      "SALAD-bench (2024): three axes mixed; constructs not separately operationalized.",
+      "SafetyBench (2024): MCQ format limits coverage of generative behavior.",
+      "Construct validity literature: 'harmlessness' as joint of fact+fair+tox conflates orthogonal dimensions."
+    ],
+    "self_acknowledged_limits": "Workshop paper (KDD); authors note three axes mixed; size 2116 limits subgroup analysis."
+  },
+  "13265": {
+    "short_name": "SafetyBench",
+    "year": 2024,
+    "family": "MCQ-safety-multilang",
+    "is_benchmark": true,
+    "note": "11,435 multiple-choice questions across 7 safety categories (offensiveness, unfairness/bias, physical health, mental health, illegal activities, ethics&morality, privacy&property), Chinese+English. ACL 2024.",
+    "critiques_received": [
+      "SALAD-bench (2024): 7 categories miss hierarchical structure for sub-domain analysis.",
+      "HarmBench (2024): MCQ doesn't test refusal/safe-completion behavior; no jailbreak attack evaluation.",
+      "XSTest (2024): doesn't include over-refusal probes.",
+      "Agent-SafetyBench (2025): question-only, not action-grounded."
+    ],
+    "self_acknowledged_limits": "Authors note MCQ evaluation may not transfer to open-ended generation; some questions answer-leakable."
+  },
+  "13270": {
+    "short_name": "Chinese-Safeguard",
+    "year": 2024,
+    "family": "Chinese-safeguard-MCQ",
+    "is_benchmark": true,
+    "note": "Chinese-language safeguard evaluation dataset. 5K Chinese prompts evaluating LLM refusal/response policy across China-specific risk categories (政治敏感、违法犯罪、伦理道德、个人隐私 etc.).",
+    "critiques_received": [
+      "SALAD-bench (2024): smaller scale; flat taxonomy.",
+      "Agent-SafetyBench (2025): single-turn refusal-only.",
+      "MM-SafetyBench (2024): text-only."
+    ],
+    "self_acknowledged_limits": "Authors note Chinese-specific framing limits cross-cultural transfer; LLM-as-judge for policy compliance has variance."
+  },
+  "13277": {
+    "short_name": "SALAD-bench",
+    "year": 2024,
+    "family": "hierarchical-safety",
+    "is_benchmark": true,
+    "note": "Hierarchical 3-level safety benchmark: 6 Level-1 domains (Representation/Misinformation/Socioeconomic/Information Hazards/Malicious Use/Human-Computer Interaction) → 16 Level-2 → 65 Level-3. ~30K base questions × 3 attack-enhanced sets. Includes attack/defense subsets.",
+    "critiques_received": [
+      "HarmBench (2024) follow-up: hierarchy is novel but Level-3 categories overlap.",
+      "Agent-SafetyBench (2025): question-format only, not action-grounded.",
+      "MM-SafetyBench (2024): text-only.",
+      "XSTest-family: doesn't include over-refusal."
+    ],
+    "self_acknowledged_limits": "Authors note hierarchy granularity choices are subjective; LLM-judge for response classification has biases."
+  },
+  "10869": {
+    "short_name": "HarmBench",
+    "year": 2024,
+    "family": "automated-red-teaming",
+    "is_benchmark": true,
+    "note": "Standardized automated red-teaming framework. 510 harmful behaviors (400 standard + 100 contextual + 110 copyright) × 18 red-teaming methods × 33 LLMs. Includes multimodal subset. Defines 'harmful behavior' via NIST AI RMF + EU AI Act risk taxonomy. NeurIPS 2024.",
+    "critiques_received": [
+      "XSTest (2024) complement: HarmBench tests under-refusal but not over-refusal.",
+      "Agent-SafetyBench (2025): action-grounded harm not covered.",
+      "JailBreakV (2024): multimodal red-teaming partial.",
+      "SafetyBench / SALAD-bench: HarmBench's behavior-only design less comprehensive on knowledge-style probes."
+    ],
+    "self_acknowledged_limits": "Authors note 510 behaviors a sample; English; copyright subset US-centric."
+  },
+  "13282": {
+    "short_name": "XSTest",
+    "year": 2024,
+    "family": "over-refusal",
+    "is_benchmark": true,
+    "note": "200 safe + 250 unsafe paired prompts that look superficially similar. Tests exaggerated safety / over-refusal. NAACL 2024.",
+    "critiques_received": [
+      "HarmBench (2024) author POV: complementary; XSTest doesn't test under-refusal.",
+      "SALAD-bench (2024): scale 200+250 limited.",
+      "MM-SafetyBench (2024): text-only.",
+      "Multilingual safety surveys: English-only over-refusal probes don't transfer."
+    ],
+    "self_acknowledged_limits": "Authors note 450 prompts a diagnostic sample; English; over-refusal types not exhaustive."
+  },
+  "12556": {
+    "short_name": "JailBreakV",
+    "year": 2024,
+    "family": "multimodal-jailbreak",
+    "is_benchmark": true,
+    "note": "JailBreakV-28K: multimodal (image+text) jailbreak benchmark for MLLMs. 28K attack samples × 16 attack methods (e.g., text-based prompt injection, image-based attacks). Tests cross-modal safety alignment.",
+    "critiques_received": [
+      "MM-SafetyBench (2024): JailBreakV focuses on adversarial attack only; lacks broad safety category coverage.",
+      "Agent-SafetyBench (2025): static input attack ≠ agent action safety.",
+      "HarmBench (2024): multimodal subset is more standardized."
+    ],
+    "self_acknowledged_limits": "Authors note attacks may not transfer to newer MLLMs; English; LLM-as-judge for harm classification."
+  },
+  "13285": {
+    "short_name": "MM-SafetyBench",
+    "year": 2024,
+    "family": "multimodal-safety",
+    "is_benchmark": true,
+    "note": "MultiModal Safety Benchmark. 5,040 image+text query-image pairs across 13 scenarios (illegal activity, hate speech, malware, physical/economic/fraud/political/privacy/legal/financial/medical advice). Image typeset to enclose harmful intent.",
+    "critiques_received": [
+      "JailBreakV (2024): MM-SafetyBench focuses on benign-looking text + harmful image; lacks adversarial attack diversity.",
+      "Agent-SafetyBench (2025): question-only; not action-grounded.",
+      "HarmBench (2024): newer standardization may supersede."
+    ],
+    "self_acknowledged_limits": "Authors note image generation for typeset-attack may not transfer to natural multimodal queries; English."
+  },
+  "13508": {
+    "short_name": "Agent-SafetyBench",
+    "year": 2025,
+    "family": "agent-action-safety",
+    "is_benchmark": true,
+    "note": "2,000 test cases for LLM agents in 8 risk categories × 10 representative failure modes. Action-grounded: tests model behavior in tool-using / file-editing / web-browsing agent loops.",
+    "critiques_received": [
+      "Workshop / preprint stage (2025); few public critiques yet.",
+      "Multilingual safety surveys: English-only; Chinese agent safety unaddressed.",
+      "XSTest-style critique: over-refusal in agent loops not measured separately."
+    ],
+    "self_acknowledged_limits": "Authors note 2k cases is a sample; risk categories may evolve; tool environment limited to ToolEmu sandbox."
+  },
+  "13228": {
+    "short_name": "SafeInfer",
+    "year": 2025,
+    "family": "method+companion-bench",
+    "is_benchmark": true,
+    "note": "Decoding-time safety alignment method (NOT primarily a benchmark) — adjusts hidden states with safe demonstrations + safety-guided decoding. Releases HARMEVAL (companion benchmark for misuse scenarios aligned with major AI safety policies).",
+    "critiques_received": [
+      "HarmBench (2024) family: HARMEVAL subset less standardized than HarmBench.",
+      "Agent-SafetyBench (2025): not action-grounded.",
+      "Construct validity: 'safe-aligned model' may be re-attacked through SafeInfer-aware adversaries."
+    ],
+    "self_acknowledged_limits": "Authors note safety alignment may be brittle and that knowledge-editing techniques can break SafeInfer."
+  }
+}

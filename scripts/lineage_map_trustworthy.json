@@ -1,0 +1,135 @@
+{
+  "_doc": "Trustworthy & Controllable lineage map. 10 papers covering hallucination/factuality/truthfulness/legal/sycophancy.",
+
+  "13047": {
+    "short_name": "HotpotQA",
+    "year": 2018,
+    "family": "multi-hop-QA",
+    "is_benchmark": true,
+    "note": "113k Wikipedia multi-hop QA, supporting facts; foundational for explainable reasoning evaluation. Used as basis for many later trustworthy benchmarks (HallusionBench, etc.).",
+    "critiques_received": [
+      "TrustLLM (2024): HotpotQA is general QA; multi-hop reasoning ≠ trustworthy reasoning under uncertainty.",
+      "HallusionBench (2024): text-only; doesn't probe visual/cross-modal hallucination.",
+      "FEVER (2018) follow-ups: HotpotQA has shortcut artifacts; reasoning chains may be spurious."
+    ],
+    "self_acknowledged_limits": "Authors note Wikipedia bias; multi-hop questions sometimes solvable via single hop."
+  },
+  "13484": {
+    "short_name": "FEVER",
+    "year": 2018,
+    "family": "fact-verification",
+    "is_benchmark": true,
+    "note": "185k claims with Wikipedia evidence labeled SUPPORTED/REFUTED/NOT ENOUGH INFO; first large-scale fact verification benchmark.",
+    "critiques_received": [
+      "TruthfulQA (2022): FEVER tests retrieval-grounded fact-checking; doesn't address truthfulness when models confabulate.",
+      "Sycophancy literature: FEVER fact-checking misses calibration / adversarial-pressure failures.",
+      "TrustLLM (2024): single-task; doesn't span multiple trustworthy dimensions."
+    ],
+    "self_acknowledged_limits": "Authors note Wikipedia evidence boundary; NOT-ENOUGH-INFO label often debated."
+  },
+  "10802": {
+    "short_name": "TruthfulQA",
+    "year": 2022,
+    "family": "truthfulness-imitative-falsehoods",
+    "is_benchmark": true,
+    "note": "817 questions designed to elicit imitative falsehoods (common misconceptions); tests if LLMs reproduce false beliefs from web. Two metrics: MC1/MC2 (multi-choice) + GPT-judge for generation.",
+    "critiques_received": [
+      "TrustLLM (2024): single-axis (truthfulness); doesn't cover trustworthiness holistically.",
+      "Sycophancy (Sharma 2025): TruthfulQA's MC format doesn't probe sycophantic responses under user pressure.",
+      "HallusionBench (2024): text-only; multimodal hallucination unaddressed."
+    ],
+    "self_acknowledged_limits": "Authors note 817 small; hand-curated common misconceptions; English."
+  },
+  "12363": {
+    "short_name": "TrustGPT",
+    "year": 2023,
+    "family": "trust-multi (also in Safety)",
+    "is_benchmark": true,
+    "is_duplicate_of_safety": true,
+    "note": "Toxicity / bias / value-alignment for conversational LLMs (also appears in Safety section). Trustworthy lens emphasizes value-alignment.",
+    "critiques_received": [
+      "TrustLLM (2024): broader trustworthiness coverage; TrustGPT's value-alignment narrowly defined.",
+      "Sycophancy (2025): doesn't cover sycophancy.",
+      "Construct validity literature: TrustGPT's three axes mixed without clear operationalization."
+    ],
+    "self_acknowledged_limits": "Authors flag work-in-progress; metrics heuristic."
+  },
+  "12375": {
+    "short_name": "TrustLLM",
+    "year": 2024,
+    "family": "comprehensive-trustworthiness",
+    "is_benchmark": true,
+    "note": "Comprehensive trustworthiness benchmark across truthfulness, safety, fairness, robustness, privacy, ethics, transparency, accountability — 30+ subtasks, 16 LLMs evaluated.",
+    "critiques_received": [
+      "Sycophancy (2025): TrustLLM aggregates many tasks but doesn't deep-dive sycophancy.",
+      "HallusionBench (2024): text-only; multimodal trustworthiness gap.",
+      "Construct validity: 8 trustworthiness dimensions overlap and lack clear separability."
+    ],
+    "self_acknowledged_limits": "Authors note breadth-vs-depth tradeoff; some subtasks reuse existing benchmarks; English."
+  },
+  "12263": {
+    "short_name": "HallusionBench",
+    "year": 2024,
+    "family": "multimodal-hallucination",
+    "is_benchmark": true,
+    "note": "Diagnostic suite for entangled language hallucination + visual illusion in MLLMs. ~1k image-question pairs across visual reasoning categories.",
+    "critiques_received": [
+      "TrustLLM-MM extensions: HallusionBench focuses on visual; LLM-judge for entanglement diagnosis has noise.",
+      "PatentEval / domain trustworthy: domain-specific hallucination not covered.",
+      "Recent surveys: 1k size limits subgroup analysis."
+    ],
+    "self_acknowledged_limits": "Authors note image generation may transfer poorly; LLM judge variance."
+  },
+  "13491": {
+    "short_name": "LegalBench",
+    "year": 2023,
+    "family": "domain-legal",
+    "is_benchmark": true,
+    "note": "Collaboratively built benchmark for legal reasoning; 162 tasks contributed by ~40 legal scholars across IRAC (issue, rule, application, conclusion) reasoning steps.",
+    "critiques_received": [
+      "LawBench (2024): English/US legal system focused; doesn't transfer to civil-law jurisdictions.",
+      "TrustLLM: domain knowledge ≠ trustworthy reasoning under uncertainty.",
+      "Sycophancy concern: legal advice domain especially vulnerable to confident hallucination."
+    ],
+    "self_acknowledged_limits": "Authors note US-common-law focus; English; tasks contributed by volunteers, quality varies."
+  },
+  "13494": {
+    "short_name": "LawBench",
+    "year": 2024,
+    "family": "domain-legal-Chinese",
+    "is_benchmark": true,
+    "note": "Chinese legal knowledge benchmark; 20 legal tasks across cognitive levels (memorization → understanding → application). Aligned with Chinese legal system.",
+    "critiques_received": [
+      "LegalBench (2023) cross-comparison: LawBench Chinese-focused; cross-jurisdiction transfer untested.",
+      "TrustLLM: knowledge ≠ trustworthiness.",
+      "PatentEval / domain-specific: doesn't cover patent law specifics."
+    ],
+    "self_acknowledged_limits": "Authors note Chinese-only; some tasks have answer-leakage from training data."
+  },
+  "13497": {
+    "short_name": "PatentEval",
+    "year": 2024,
+    "family": "domain-patent-error-types",
+    "is_benchmark": true,
+    "note": "Understanding errors in patent generation — taxonomy of error types (claim drafting, prior art comparison, novelty, etc.) for evaluating LLM patent generation.",
+    "critiques_received": [
+      "Recent (preprint); few public critiques.",
+      "LegalBench / LawBench: domain-specific; intersects with legal but distinct.",
+      "Sycophancy / TrustLLM: error taxonomy useful but doesn't cover full trustworthy spectrum."
+    ],
+    "self_acknowledged_limits": "Authors note specialized domain; expert annotation required; English."
+  },
+  "13487": {
+    "short_name": "Sycophancy-Sharma",
+    "year": 2025,
+    "family": "sycophancy",
+    "is_benchmark": true,
+    "note": "Sharma et al. 2025: Towards understanding sycophancy in LMs. Studies persona-sycophancy and preference-sycophancy in 5 production LLMs. Quantifies how LLMs flip answers under user pressure / persona prompting.",
+    "critiques_received": [
+      "TrustLLM (2024) misses sycophancy as separate axis.",
+      "Recent: sycophancy benchmark needs adversarial multi-turn extension.",
+      "Construct validity: 'sycophancy' construct narrow vs broader 'epistemic capitulation'."
+    ],
+    "self_acknowledged_limits": "Authors note 5 LLMs evaluated; English; preference-sycophancy may correlate with helpfulness."
+  }
+}

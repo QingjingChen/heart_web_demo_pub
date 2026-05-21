@@ -1150,7 +1150,12 @@
     }
 
     function apiBase() {
-      return window.location.protocol === "file:" ? "http://127.0.0.1:8765" : "";
+      const override = localStorage.getItem("heartApiBase");
+      if (override) return override.replace(/\/$/, "");
+      if (window.location.protocol === "file:" || window.location.hostname.endsWith("github.io")) {
+        return "http://127.0.0.1:8765";
+      }
+      return "";
     }
 
     function fileToBase64(file) {

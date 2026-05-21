@@ -1,0 +1,317 @@
+{
+  "_doc": "Each entry: folder_id -> {short_name, year, family, critiques_received, self_acknowledged_limits}. critiques_received are concise paraphrases of how later papers criticized this benchmark. Use as Limitation evidence when scoring.",
+
+  "14064": {
+    "short_name": "Kleinberg-FairTradeoffs",
+    "year": 2016,
+    "family": "theoretical",
+    "is_benchmark": false,
+    "note": "Theoretical impossibility result for fair risk scores; not a dataset/benchmark. Many fairness benchmarks (BBQ/CBBQ etc.) implicitly assume single fairness criterion which Kleinberg shows cannot coexist.",
+    "critiques_received": [],
+    "self_acknowledged_limits": "Limited to risk-score calibration setting; impossibility holds only when base rates differ across groups."
+  },
+  "13459": {
+    "short_name": "GAP",
+    "year": 2018,
+    "family": "coref-pronoun",
+    "is_benchmark": true,
+    "note": "Wikipedia-derived gendered ambiguous pronoun dataset (8908 pairs) for coreference; gender-balanced by construction.",
+    "critiques_received": [
+      "Levy 2021 (BUG): Wikipedia text + ambiguous pronouns is artificial; lacks naturalistic occupational stereotype signal.",
+      "Felkner 2023 (WinoQueer): binary gender only; ignores LGBTQ+ identities.",
+      "Vanmassenhove 2021 (NeuTral): treats gender as binary he/she, no neutral 'they' baseline."
+    ],
+    "self_acknowledged_limits": "English Wikipedia only; binary masculine/feminine pronouns; coreference task only."
+  },
+  "10838": {
+    "short_name": "Winogender",
+    "year": 2018,
+    "family": "coref-template",
+    "is_benchmark": true,
+    "note": "120 hand-built templates × 60 occupations × {he/she/they}; minimal-pair Winograd-style coreference test, paired with US BLS occupational gender stats.",
+    "critiques_received": [
+      "Levy 2021 (BUG): synthetic templates underestimate real-world bias; tiny size (720 sentences); cannot stress-test models.",
+      "Felkner 2023 (WinoQueer): only binary gender + 'they'; no LGBTQ+ axis.",
+      "Vanmassenhove 2021 (NeuTral Rewriter): Winogender pairs forced into binary categorization, no neutral targets.",
+      "Smith 2022 (HolisticBias): occupation axis only, ignores hundreds of other demographic descriptors."
+    ],
+    "self_acknowledged_limits": "Diagnostic, not training; binary occupation set; synthetic templates."
+  },
+  "13473": {
+    "short_name": "WinoBias",
+    "year": 2018,
+    "family": "coref-template",
+    "is_benchmark": true,
+    "note": "3160 sentences in two evaluation types (Type1/Type2); occupation × pronoun pro-/anti-stereotype contrast, debiasing methods evaluated.",
+    "critiques_received": [
+      "Levy 2021 (BUG): same as Winogender — synthetic, scale-limited.",
+      "Felkner 2023 (WinoQueer): binary; LGBTQ+ identities absent.",
+      "Vanmassenhove 2021 (NeuTral): WinoBias+ extends with neutral pronouns; original WinoBias hard-codes binary gender.",
+      "Stanovsky 2019 et seq.: limited to occupational stereotypes from BLS; no race/age/disability axes."
+    ],
+    "self_acknowledged_limits": "Templates and 40 occupations; English; gender as he/she only."
+  },
+  "13452": {
+    "short_name": "Dev-WordEmbed",
+    "year": 2020,
+    "family": "embedding-NLI",
+    "is_benchmark": true,
+    "note": "Probes static word embeddings + NLI for biased inferences across gender, race, religion; debias via projection.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias): static embedding probes are decoupled from real downstream usage and dialog generation.",
+      "Dhamala 2021 (BOLD): bias measured intrinsically in embeddings does not transfer to generation behavior.",
+      "Blodgett 2021 (Stereotyping Norwegian Salmon, applies to many MLM/embedding probes): construct underspecified."
+    ],
+    "self_acknowledged_limits": "Focused on embedding-level intervention; downstream effect partial."
+  },
+  "13451": {
+    "short_name": "BERT-Bartl",
+    "year": 2020,
+    "family": "MLM-cloze",
+    "is_benchmark": true,
+    "note": "Measures English vs German contextual gender stereotypes in BERT via cloze probing on occupation; proposes counterfactual data substitution debiasing.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias): occupation-only, narrow; small descriptor set.",
+      "Vanmassenhove 2021: binary gender categories.",
+      "Generation-side benchmarks (BOLD, HONEST): cloze probing intrinsic, mismatched with generation harms."
+    ],
+    "self_acknowledged_limits": "EN/DE only; pronoun-occupation only; intrinsic measure."
+  },
+  "13012": {
+    "short_name": "WikiGenderBias",
+    "year": 2020,
+    "family": "relation-extraction",
+    "is_benchmark": true,
+    "note": "45k Wikipedia sentences with gender labels for 4 relation types (spouse, hypernym, child, residence); evaluates gender bias in relation extraction systems.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias): RE-only; dimensional coverage limited to 4 relations.",
+      "Wikipedia source skews male-biased; data inherits encyclopedic biases.",
+      "Felkner 2023: binary gender; LGBTQ+ erased."
+    ],
+    "self_acknowledged_limits": "Authors note Wikipedia underrepresents women (~18% of biographies); 4 relations only."
+  },
+  "11163": {
+    "short_name": "UnQover",
+    "year": 2020,
+    "family": "QA-underspecified",
+    "is_benchmark": true,
+    "note": "Underspecified QA framework; uses two-question reversibility to net out model positional bias; covers gender, nationality, ethnicity, religion.",
+    "critiques_received": [
+      "Parrish 2022 (BBQ): UnQover's reversal control is good but ambiguous-context Qs lack a 'correct' answer; only measures relative preference, not absolute harm.",
+      "Jin 2024 (KoBBQ) & Huang 2024 (CBBQ): English-only; protected-class taxonomy follows US categories.",
+      "Smith 2022 (HolisticBias): 4 axes is too few."
+    ],
+    "self_acknowledged_limits": "Synthetic templates; subject-name based stereotypes; English."
+  },
+  "13470": {
+    "_alias_of": "11163",
+    "short_name": "UnQover (duplicate folder)",
+    "is_benchmark": true,
+    "note": "Same paper as 11163 (UnQover); will be deduplicated in scoring."
+  },
+  "10856": {
+    "short_name": "CrowS-Pairs",
+    "year": 2020,
+    "family": "MLM-pairs",
+    "is_benchmark": true,
+    "note": "1508 pairs across 9 bias types collected via Amazon MTurk; pseudo-log-likelihood metric for MLMs.",
+    "critiques_received": [
+      "Blodgett 2021: stereotyping content underspecified, many examples invalid; construct of 'social bias' not operationalized.",
+      "Nadeem 2021 (StereoSet) & later authors: PLL metric sensitive to spurious lexical differences.",
+      "Jin 2024 (KoBBQ): US-centric stereotypes; not transferable to other cultures.",
+      "Huang 2024 (CBBQ): no Chinese-context categories (region, hukou)."
+    ],
+    "self_acknowledged_limits": "MTurk workers from US/UK; English; possibly noisy crowd judgements; nine fixed categories."
+  },
+  "13031": {
+    "short_name": "RedditBias",
+    "year": 2021,
+    "family": "conversational-real",
+    "is_benchmark": true,
+    "note": "Uses Reddit comments as real-world conversational data to evaluate and debias DialoGPT across religion, race, gender, queerness, orientation; counterfactual augmentation debiasing.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias): Reddit demographics skewed (mostly young Western males) → coverage gap.",
+      "Felkner 2023 (WinoQueer): queerness category exists but is shallow; community-in-the-loop missing.",
+      "Generation-bench critiques: PPL-style metric still intrinsic-leaning."
+    ],
+    "self_acknowledged_limits": "Authors flag Reddit demographic skew and English-only; perplexity-based metric still proxies bias rather than harm."
+  },
+  "12997": {
+    "short_name": "NeuTral-WinoBiasPlus",
+    "year": 2021,
+    "family": "rewriter+dataset",
+    "is_benchmark": true,
+    "note": "Rule-based + neural rewriter from gendered to gender-neutral English; releases WinoBias+ (with neutral pronouns) for evaluation.",
+    "critiques_received": [
+      "Felkner 2023 (WinoQueer): neutral 'they' is one step but does not capture LGBTQ+ identities or stereotypes.",
+      "Smith 2022 (HolisticBias): one-axis (gender) rewriter does not cover other identities.",
+      "Pre-trained MT models perform poorly on neutral forms in many languages — extension to non-English limited."
+    ],
+    "self_acknowledged_limits": "English-only; rule-based fallback for uncovered constructions; evaluates rewriting quality, not downstream harm."
+  },
+  "13455": {
+    "short_name": "BOLD",
+    "year": 2021,
+    "family": "open-generation",
+    "is_benchmark": true,
+    "note": "23,679 prompts spanning profession, gender, race, religion, political ideology; auto metrics for sentiment/toxicity/regard/psycholinguistic norms in open-ended generation.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias): 5 axes & ~600 descriptors not covered; uses Wikipedia which propagates encyclopedic bias.",
+      "Nozza 2021 (HONEST): sentiment/regard metrics correlate weakly with hurtfulness; English-only.",
+      "Felkner 2023 (WinoQueer): no LGBTQ+ subgroups."
+    ],
+    "self_acknowledged_limits": "Authors flag Wikipedia coverage bias and that automatic toxicity classifiers themselves contain bias."
+  },
+  "13457": {
+    "short_name": "BUG",
+    "year": 2021,
+    "family": "coref-naturalistic",
+    "is_benchmark": true,
+    "note": "108k naturalistic English sentences mined from corpora with stereotypical / anti-stereotypical / neutral labels for occupational coreference; large-scale alternative to Winogender/WinoBias.",
+    "critiques_received": [
+      "Felkner 2023: binary gender; no LGBTQ+ extension.",
+      "Smith 2022: occupation-axis only.",
+      "Vanmassenhove 2021: binary pronoun mining."
+    ],
+    "self_acknowledged_limits": "Authors note 'gold' subset still small (~1.7k); naturalistic mining surfaces messy text; English only."
+  },
+  "13019": {
+    "short_name": "StereoSet",
+    "year": 2021,
+    "family": "MLM-triple",
+    "is_benchmark": true,
+    "note": "17k context-association triples (stereo / anti-stereo / unrelated) over gender, profession, race, religion; stereotype score (SS) + LM score combined.",
+    "critiques_received": [
+      "Blodgett 2021 (Stereotyping Norwegian Salmon): MTurk-collected stereotypes are noisy, often invalid, construct unclear.",
+      "Nangia 2020 (CrowS-Pairs): SS metric distorted when sentences differ in fluency.",
+      "Smith 2022, Jin 2024, Huang 2024: 4 axes insufficient; English/US categories only."
+    ],
+    "self_acknowledged_limits": "MTurk crowdsourcing risk; only 4 stereotype domains; English."
+  },
+  "13465": {
+    "short_name": "HONEST",
+    "year": 2021,
+    "family": "generation-hurtfulness",
+    "is_benchmark": true,
+    "note": "Templated cloze prompts in 6 languages; uses HurtLex categories to score hurtful completions for women vs men.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias): only binary gender; few descriptors.",
+      "Felkner 2023: gender binary, no LGBTQ+; HurtLex coverage of slurs incomplete.",
+      "Authors of multilingual studies note HurtLex resource quality varies sharply across languages."
+    ],
+    "self_acknowledged_limits": "Reliance on HurtLex; binary gender; cloze format limits realism."
+  },
+  "10858": {
+    "short_name": "BBQ",
+    "year": 2022,
+    "family": "QA-bias",
+    "is_benchmark": true,
+    "note": "Hand-built 58k question instances across 9 US-relevant social dimensions; ambiguous + disambiguated context pairs; bias score conditioned on context.",
+    "critiques_received": [
+      "Jin 2024 (KoBBQ): explicitly critiques BBQ for English-only and US categories; ~70% of BBQ items unsuitable for Korean culture; introduces 5 new Korean dimensions.",
+      "Huang & Xiong 2024 (CBBQ): BBQ misses Chinese-relevant categories like region/hukou/educational background; only 9 dimensions vs 14 in CBBQ.",
+      "Smith 2022 (HolisticBias): BBQ's 9 axes are too coarse compared to 600+ HolisticBias descriptors."
+    ],
+    "self_acknowledged_limits": "Authors note US-English social biases only; nine categories; relies on attested-stereotype literature."
+  },
+  "13467": {
+    "short_name": "Panda",
+    "year": 2022,
+    "family": "perturbation-augmentation",
+    "is_benchmark": true,
+    "note": "98k human-perturbed text pairs across gender/race/age (Panda dataset); used to fine-tune a perturber model and improve fairness on multiple downstream tasks.",
+    "critiques_received": [
+      "Smith 2022 (HolisticBias) — same group: Panda only 3 axes; HolisticBias extends to 13 axes.",
+      "Real-world deployment papers: perturbation may produce ungrammatical or culturally awkward outputs in low-resource settings.",
+      "Jin 2024: Panda is English-only; perturber not transferable."
+    ],
+    "self_acknowledged_limits": "Authors flag English-only and 3-axis scope; perturber accuracy ~92%, errors propagate."
+  },
+  "13463": {
+    "short_name": "HolisticBias",
+    "year": 2022,
+    "family": "generation-descriptors",
+    "is_benchmark": true,
+    "note": "459k sentence prompts × 600 descriptor terms × 13 demographic axes; participatory list assembled with affected communities; used for bias/toxicity in dialog generation.",
+    "critiques_received": [
+      "Felkner 2023 (WinoQueer): even HolisticBias's LGBTQ+ axis is descriptor-list-based; community endorsement weaker than WinoQueer's iterative loop.",
+      "Jin 2024: still English/US-centric in descriptor sourcing.",
+      "Huang 2024 (CBBQ): cultural translation of HolisticBias to Chinese non-trivial; many descriptors not applicable."
+    ],
+    "self_acknowledged_limits": "Authors note descriptors are English; some categories (caste, neurodiversity) under-validated; templates are short."
+  },
+  "13008": {
+    "short_name": "WinoQueer",
+    "year": 2023,
+    "family": "MLM-LGBTQ",
+    "is_benchmark": true,
+    "note": "Community-in-the-loop benchmark (45k sentences) for anti-LGBTQ+ bias in MLMs; co-designed with LGBTQ+ community members; covers 9 queer identities × 11 stereotype types.",
+    "critiques_received": [
+      "Future surveys: still English-only; fluency artifacts in templates.",
+      "Generation-side critique: pseudo-log-likelihood metric still intrinsic, not deployment-grounded."
+    ],
+    "self_acknowledged_limits": "English-only; MLM PLL metric; sample of US-context stereotypes; community covers but cannot exhaust queer identity space."
+  },
+  "12363": {
+    "short_name": "TrustGPT",
+    "year": 2023,
+    "family": "trust-multi",
+    "is_benchmark": true,
+    "note": "Spans toxicity / bias / value-alignment for conversational LLMs; uses Social Chemistry 101 norms + active and passive value-alignment tests.",
+    "critiques_received": [
+      "Survey papers (e.g., TrustLLM): TrustGPT mixes axes loosely; metrics inconsistent across components.",
+      "HolisticBias / KoBBQ: bias dimension uses small fixed set; not multilingual.",
+      "Construct validity literature: 'value-alignment' construct underspecified in TrustGPT (no normative source mapping)."
+    ],
+    "self_acknowledged_limits": "Authors call it a starting framework, expanding work; no formal documentation card; metrics for value-alignment are heuristic."
+  },
+  "13461": {
+    "short_name": "Grep-BiasIR",
+    "year": 2023,
+    "family": "IR-gender",
+    "is_benchmark": true,
+    "note": "118 queries × pair of paragraphs (female/male) for gender representation bias in information retrieval; combines neutral and stereotyped queries.",
+    "critiques_received": [
+      "HolisticBias / WinoQueer perspective: binary gender only; small (118).",
+      "IR community: relevance judgments are coarse; no LGBTQ+ extension."
+    ],
+    "self_acknowledged_limits": "Authors flag small scale (118 queries) and binary gender."
+  },
+  "12853": {
+    "short_name": "MoralChoice",
+    "year": 2023,
+    "family": "moral-survey",
+    "is_benchmark": true,
+    "note": "1767 moral scenarios (680 high-ambiguity / 687 low-ambiguity), 2 actions each; uses survey methodology to elicit moral choices, with question-format-entropy and Recall-of-Action metrics for 28 LLMs.",
+    "critiques_received": [
+      "Within-moral-evaluation literature: 1767 scenarios can be memorized; lacks dynamic update.",
+      "Cross-cultural moral psychology: scenarios skewed toward Western moral intuitions (commonsense from English-speaking authors).",
+      "BBQ-family: not a fairness/bias benchmark per se; categorization in fairness folder is borderline."
+    ],
+    "self_acknowledged_limits": "Authors acknowledge dataset is English; rule labels (e.g., 'do not kill') are Western canonical; high-ambiguity items lack ground-truth right answer."
+  },
+  "13029": {
+    "short_name": "KoBBQ",
+    "year": 2024,
+    "family": "QA-bias-localized",
+    "is_benchmark": true,
+    "note": "Korean-localized BBQ; 76k samples over 12 categories incl. 5 Korea-specific (e.g., regional, military, marital). Filters BBQ items not applicable in Korean culture (~70%) and adds new categories.",
+    "critiques_received": [
+      "Future surveys: still QA-only; not generation; LLM judge variance.",
+      "Coverage of Korean dialects/regions partial."
+    ],
+    "self_acknowledged_limits": "Authors note ambiguous-context labels reflect Korean majority view; LLM-as-judge calibration limited."
+  },
+  "8278": {
+    "short_name": "CBBQ",
+    "year": 2024,
+    "family": "QA-bias-localized",
+    "is_benchmark": true,
+    "note": "Chinese BBQ-style benchmark; 100k+ questions over 14 social dimensions including China-specific (region, hukou, educational background, marital status, appearance); 4-step human-AI collaborative curation.",
+    "critiques_received": [
+      "Recent Chinese fairness surveys: AI-assisted generation may amplify model biases; manual review coverage uneven.",
+      "QA-only; does not test multi-turn or generation drift."
+    ],
+    "self_acknowledged_limits": "Authors note AI-assistance may inject model bias; some categories (e.g., 户籍) hard to ground in legal sources."
+  }
+}

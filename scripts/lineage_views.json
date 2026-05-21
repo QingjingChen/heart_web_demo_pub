@@ -1,0 +1,1764 @@
+{
+  "MoralMachine": {
+    "短名": "MoralMachine",
+    "lineage_critiques": [
+      "outcome-only forced choice; ignores procedural reasoning. — MoReBench (2025)",
+      "9-attribute design doesn't map cleanly onto established moral foundations. — MFT replication (2023)",
+      "forced binary trolley choices oversimplify situated reasoning. — Moral stories (2021)"
+    ],
+    "self_limits": "Self-selected online participants; trolley-style scenarios highly stylized; cross-cultural framing limited.",
+    "external_views": [],
+    "synthesis": "综述指出，MoralMachine的跨文化覆盖强例但局限于自动驾驶trolley-style特定场景。后续工作批评其仅关注结果选择、忽略程序性推理，并且9-attribute设计未清晰映射到已建立的道德基础。",
+    "_meta": {
+      "row": 21,
+      "tag": null,
+      "cite": "MoralMachine (2018)",
+      "pillar": "humancentered",
+      "survey_passage_count": 0
+    }
+  },
+  "MoralStories": {
+    "短名": "MoralStories",
+    "lineage_critiques": [
+      "outcome labels embed annotator bias; pluralism not modeled. — MoReBench (2025)",
+      "English/Western norms only. — CMoralEval (2024)",
+      "norms drawn from US Reddit; not transferable to professional contexts. — Educator-LLM (2025)"
+    ],
+    "self_limits": "Authors flag US-centric norms; binary moral/immoral labels may suppress disagreement.",
+    "external_views": [
+      "The MoralStories [Emelin et al., 2021] dataset is a crowd-sourced, structured, and branching collection of social narratives designed to approximate real-world moral and interpersonal decision-making. Each instance presents a concrete — Survey"
+    ],
+    "synthesis": "综述指出，MoralStories 是一个众包、结构化和分支的社会叙事集合，旨在模拟现实世界的道德和个人决策。后续工作批评其结果标签嵌入了注释者偏见，未建模多元性，并且仅限于英语/西方规范，不适合专业环境。作者自承局限包括美国中心的规范和二元道德/不道德标签可能抑制分歧。",
+    "_meta": {
+      "row": 22,
+      "tag": null,
+      "cite": "MoralStories (2021)",
+      "pillar": "humancentered",
+      "survey_passage_count": 1
+    }
+  },
+  "SCRUPLES": {
+    "短名": "SCRUPLES",
+    "lineage_critiques": [
+      "outcome-only; doesn't model procedural reasoning. — MoReBench (2025)",
+      "English-only Reddit demographic skew. — CMoralEval (2024)",
+      "lacks healthcare/professional alignment context. — VITAL/HumaniBench"
+    ],
+    "self_limits": "Authors flag Reddit demographic skew (young Western); community verdicts noisy; binary labels suppress moral pluralism.",
+    "external_views": [
+      "The SCRUPLES [lou,] dataset comprises two core components: DILEMMAS (simple moral value rankings of action pairs) and complex real-life anecdotes extracted from Reddit. The task requires models to judge 'who is in the wrong'. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，SCRUPLES 数据集包含两个核心组件：DILEMMAS 和从 Reddit 提取的复杂真实生活轶事。后续工作批评其仅关注结果、缺乏程序推理，并且存在英语和Reddit人口统计偏差。作者自承局限包括Reddit人口统计偏差（年轻西方）、社区裁决嘈杂以及二元标签抑制道德多元性。",
+    "_meta": {
+      "row": 23,
+      "tag": null,
+      "cite": "SCRUPLES (2021)",
+      "pillar": "humancentered",
+      "survey_passage_count": 3
+    }
+  },
+  "ETHICS": {
+    "短名": "ETHICS",
+    "lineage_critiques": [
+      "outcome-only; doesn't test moral reasoning chains. — MoReBench (2025)",
+      "low-ambiguity items only; doesn't probe disagreement. — Scherrer 2023 (MoralChoice)",
+      "five frameworks chosen by authors; some categories thin (e.g., Virtue 2.5k). — CMoralEval (2024) / MFQ-2 (2023)",
+      "no professional context; abstracts away role-bound duties. — Educator-LLM (2025)"
+    ],
+    "self_limits": "Authors flag MTurk crowdsourcing variance; English; some sub-benchmarks (Virtue) limited to single-word judgments.",
+    "external_views": [
+      "This fragmentation leads to a “measurement trap,” where measurable metrics (like toxicity scores) are optimized while harder-to-define values (like human autonomy or psychological well-being) are neglected. — Survey"
+    ],
+    "synthesis": "综述指出，该 benchmark 存在“测量陷阱”，即优化可测量指标而忽视难以定义的价值。后续工作批评其仅测试结果而不测道德推理链（MoReBench, 2025），仅包含低模糊性项目且未探查分歧（Scherrer 2023）。作者自承众包方差大、英语单一文化及部分子基准（如 Virtue）仅限单词判断的局限。",
+    "_meta": {
+      "row": 24,
+      "tag": null,
+      "cite": "ETHICS (2023)",
+      "pillar": "humancentered",
+      "survey_passage_count": 3
+    }
+  },
+  "MFQ-2": {
+    "短名": "MFQ-2",
+    "lineage_critiques": [
+      "Construct validity in LLM evals: MFQ designed for human surveys; transferring to LLMs (e.g., MoralChoice using MFQ axes) is non-trivial. — 后续工作"
+    ],
+    "self_limits": "Authors note WEIRD sample limitation; not a model-evaluation tool.",
+    "external_views": [],
+    "synthesis": "后续工作批评MFQ-2在LLM评估中的构念效度问题，指出其设计初衷是人类问卷，迁移至LLM评测并不简单。作者自承样本局限于WEIRD人群，并非模型评估工具。",
+    "_meta": {
+      "row": 25,
+      "tag": null,
+      "cite": "MFQ-2 (2023)",
+      "pillar": "humancentered",
+      "survey_passage_count": 0
+    }
+  },
+  "MoralChoice": {
+    "短名": "MoralChoice",
+    "lineage_critiques": [
+      "outcome-only choice; no procedural reasoning chain. — MoReBench (2025)",
+      "English; Western moral intuitions. — CMoralEval (2024)",
+      "MFQ axes used externally without psychometric calibration. — MFT-2 (2023)"
+    ],
+    "self_limits": "Authors flag English; rule labels Western canonical; high-ambiguity items lack ground-truth.",
+    "external_views": [],
+    "synthesis": "后续工作批评MoralChoice仅基于结果选择，缺乏程序推理链（MoReBench, 2025），且局限于英语和西方道德直觉（CMoralEval, 2024）。作者自承局限在于数据集为英语、规则标签基于西方规范，并且高歧义题缺乏ground truth。",
+    "_meta": {
+      "row": 26,
+      "tag": null,
+      "cite": "MoralChoice (2023)",
+      "pillar": "humancentered",
+      "survey_passage_count": 0
+    }
+  },
+  "CMoralEval": {
+    "短名": "CMoralEval",
+    "lineage_critiques": [
+      "Chinese-only; cross-national value alignment unaddressed. — NaVAB (2025)",
+      "outcome-style choice items dominate. — MoReBench (2025)",
+      "doesn't map to MFQ axes for cross-comparison. — MFT critique"
+    ],
+    "self_limits": "Authors note cultural specificity may limit generalization; some categories rely on subjective interpretation.",
+    "external_views": [
+      "「Survey 第 404 段：CMoralEval [Yu et al., 2024] is a large-scale morality evaluation benchmark for Chinese LLMs addressing the gap in Eastern cultural contexts. It constructs Explicit and Dilemma scenarios from real-world cases, integrating Confucian principles and modern cultural norms.」"
+    ],
+    "synthesis": "综述指出 CMoralEval 是针对中文 LLM 的大规模道德评估基准，填补了东方文化背景下的空白。后续工作批评其仅限于中文、未解决跨国家价值对齐问题，并且选择题型占主导。作者自承文化特异性可能限制泛化能力，部分类别依赖主观解释。",
+    "_meta": {
+      "row": 27,
+      "tag": null,
+      "cite": "CMoralEval (2024)",
+      "pillar": "humancentered",
+      "survey_passage_count": 3
+    }
+  },
+  "CPsyExam": {
+    "短名": "CPsyExam",
+    "lineage_critiques": [
+      "exam knowledge ≠ empathic interaction; CPsyExam tests knowledge recall not crisis response. — HeartBench (2025)",
+      "single-turn QA; lacks supportive dialogue. — SMILE (2024)",
+      "exam format doesn't capture clinical decision-making nuance. — VITAL (2025)"
+    ],
+    "self_limits": "Authors note exam-knowledge limitation; doesn't test clinical empathy or crisis intervention.",
+    "external_views": [
+      "CPsyExam [Zhao et al., 2024] integrates 22,000 questions from Chinese professional psychology examinations to build a dual evaluation framework covering both knowledge retrieval and case-based reasoning. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，CPsyExam 通过整合 22,000 个问题构建了知识检索和案例推理的双重评估框架。后续工作批评其主要测试知识回忆而非危机响应，且缺乏支持性对话和临床决策的细微差别。作者自承其局限在于不测试临床共情或危机干预。",
+    "_meta": {
+      "row": 28,
+      "tag": null,
+      "cite": "CPsyExam (2024)",
+      "pillar": "humancentered",
+      "survey_passage_count": 3
+    }
+  },
+  "EmotionBench": {
+    "短名": "EmotionBench",
+    "lineage_critiques": [
+      "emotional response ≠ empathic action; lacks anthropomorphic intelligence dimensions. — HeartBench (2025)",
+      "single-turn elicitation; no multi-turn supportive conversation. — SMILE (2024)",
+      "PANAS is Western-validated; non-Western emotion lexicons absent. — Cross-cultural emotion psychology"
+    ],
+    "self_limits": "Authors note PANAS Western validation; LLM 'emotion' is anthropomorphic projection; multi-turn dynamics not tested.",
+    "external_views": [
+      "EmotionBench [Huang et al., 2024a]integrates the PANAS scale with eight clinical-grade instruments (e.g., BDI-II) to deeply probe both explicit and implicit emotions"
+    ],
+    "synthesis": "综述指出 EmotionBench 结合了 PANAS 量表和八个临床级工具（如 BDI-II）来深入探究显性和隐性情绪。后续工作批评其情感反应不等于共情行为，缺乏拟人化智能维度；单轮激发无法模拟多轮支持对话；PANAS 是西方验证的，非西方情绪词汇缺失。作者自承局限：LLM '情绪' 是拟人化投射；未测试多轮对话动态。",
+    "_meta": {
+      "row": 29,
+      "tag": null,
+      "cite": "EmotionBench (2024)",
+      "pillar": "humancentered",
+      "survey_passage_count": 2
+    }
+  },
+  "SMILE": {
+    "短名": "SMILE",
+    "lineage_critiques": [
+      "focuses on supportive language not on professional boundary / referral. — HeartBench (2025)",
+      "not specifically aligned with clinical guidelines. — VITAL (2025)",
+      "role-specific (mental health); not generalizable. — Educator-LLM (2025)"
+    ],
+    "self_limits": "Authors note ChatGPT-generated dialogues may amplify model bias; Chinese only; no expert-validated clinical pathways.",
+    "external_views": [
+      "SMILE [Qiu et al., 2024]introduces an innovative data-augmentation strategy that uses ChatGPT to convert privacy-restricted single-turn counseling data into high-quality multi-turn dialogues. The project builds a"
+    ],
+    "synthesis": "综述指出，SMILE 引入了创新的数据增强策略，使用 ChatGPT 将隐私受限的单轮咨询数据转换为高质量的多轮对话。后续工作批评其专注于支持性语言而非专业边界/转介，未特别对齐临床指南，且仅限于心理健康角色，缺乏通用性。作者自承 ChatGPT 生成的对话可能放大模型偏差，仅限中文，无专家验证的临床路径。",
+    "_meta": {
+      "row": 30,
+      "tag": null,
+      "cite": "SMILE (2024)",
+      "pillar": "humancentered",
+      "survey_passage_count": 2
+    }
+  },
+  "Educator-LLM": {
+    "短名": "Educator-LLM",
+    "lineage_critiques": [
+      "single-role benchmark; multi-stakeholder needed. — TrustMH-Bench (2026)",
+      "healthcare profession parallel; cross-profession comparison absent. — VITAL (2025)"
+    ],
+    "self_limits": "Authors note role-specific limits; no longitudinal validation.",
+    "external_views": [],
+    "synthesis": "后续工作批评 Educator-LLM 为单一职业角色基准，缺乏多利益相关者覆盖和跨职业比较。作者自承存在角色特定限制且无纵向验证。",
+    "_meta": {
+      "row": 31,
+      "tag": null,
+      "cite": "Educator-LLM (2025)",
+      "pillar": "humancentered",
+      "survey_passage_count": 0
+    }
+  },
+  "HeartBench": {
+    "短名": "HeartBench",
+    "lineage_critiques": [
+      "empathy benchmarks tend toward outcome scoring; HeartBench tries to address this but procedural eval still incomplete. — MoReBench (2025)",
+      "HeartBench richer than knowledge tests but smaller scale. — CPsyExam-style"
+    ],
+    "self_limits": "Authors flag English; new benchmark, lacking longitudinal validation against human therapy outcomes.",
+    "external_views": [
+      "HeartBench [Liu et al., 2025a] is an evaluation framework that targets the limitations of large language models in anthropomorphic intelligence. Grounded in the Chinese cultural context, it draws on real psychological counseling scenarios and collaborates with clinical experts. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，HeartBench 是一个基于中文文化背景的评估框架，针对大型语言模型在拟人智能方面的局限性。后续工作批评其过程评估仍不完整且规模较小。作者自承缺乏纵向验证和英文版本。",
+    "_meta": {
+      "row": 32,
+      "tag": null,
+      "cite": "HeartBench (2025)",
+      "pillar": "humancentered",
+      "survey_passage_count": 2
+    }
+  },
+  "HumaniBench": {
+    "短名": "HumaniBench",
+    "lineage_critiques": [
+      "「VITAL (2025): healthcare alignment more specialized.」— VITAL",
+      "「TrustMH-Bench (2026): broader trustworthiness coverage needed.」— TrustMH-Bench"
+    ],
+    "self_limits": "「Authors note English; multimodal subset limited; LLM-as-judge dependency.」",
+    "external_views": [
+      "「HumaniBench [Raza et al., 2025] is a large-scale, human-centric evaluation framework for Large Multimodal Models (LMMs). Utilizing a dataset of 32,000 expert-verified image-question pairs from real-world news, it assesses models on alignment with human values, fairness, harm in image+text scenarios.」— Survey"
+    ],
+    "synthesis": "综述指出，HumaniBench 是一个大规模、以人为中心的多模态模型评估框架，利用32,000个专家验证的图像-问题对来评估模型在人类价值观、公平性和有害内容方面的表现。后续工作批评其在医疗对齐方面需要更专业化（VITAL），并且需要更广泛的可信度覆盖（TrustMH-Bench）。作者自承局限包括英语为主、多模态子集有限以及依赖LLM作为评判者。",
+    "_meta": {
+      "row": 33,
+      "tag": null,
+      "cite": "HumaniBench (2025)",
+      "pillar": "humancentered",
+      "survey_passage_count": 2
+    }
+  },
+  "MoReBench": {
+    "短名": "MoReBench",
+    "lineage_critiques": [
+      "「Recent: still English; small-scale; reliance on LLM-as-judge to score reasoning chains has variance.」— 后续工作"
+    ],
+    "self_limits": "「Authors note LLM-judge calibration; English; reasoning chain evaluation is labor-intensive.」",
+    "external_views": [
+      "「MoReBench[Chiu et al., 2025] a benchmark designed to evaluate the reasoning process of LLMs across 1,000 dilemmas in 16 domains (e.g., AI safety, medicine). Unlike outcome-based tests, it uses expert-designed rubrics.」— Survey"
+    ],
+    "synthesis": "综述指出，MoReBench 设计用于评估 LLM 在 1,000 个困境中的推理过程，并使用专家设计的评分标准。后续工作批评其仍为英语、规模较小且依赖 LLM 评分存在方差。作者自承 LLM 评分校准、英语限制及推理链评估劳动密集。",
+    "_meta": {
+      "row": 34,
+      "tag": null,
+      "cite": "MoReBench (2025)",
+      "pillar": "humancentered",
+      "survey_passage_count": 2
+    }
+  },
+  "NaVAB": {
+    "短名": "NaVAB",
+    "lineage_critiques": [
+      "mainstream-value framing may suppress minority moral voices. — CMoralEval (2024)",
+      "national-value alignment is outcome-focused; procedural pluralism untested. — MoReBench (2025)",
+      "MFQ axes provide better psychometric scaffold than news-derived statements. — MFQ-2 (2023)"
+    ],
+    "self_limits": "Authors note 5-country sample; mainstream-stance label suppresses pluralism; news source biases.",
+    "external_views": [
+      "NaVAB [Ju et al., 2025]is an innovative benchmark for multi-national value alignment. It employs an automated pipeline to extract value statements with specific stances or ideologies from massive amounts of raw news. To ensure rigorous evaluation, the dataset transforms each finding into a triplet consisting of a Question (Q), a Statement (S), and a Reverse Statement (RS). By constructing data from both positive and negative perspectives, NaVAB achieves a more balanced dataset distribution. — Survey 第 365-374 段"
+    ],
+    "synthesis": "综述指出，NaVAB 是一个多国价值对齐的创新基准，通过自动化管道从大量新闻中提取具有特定立场或意识形态的价值陈述，并将其转换为包含问题、陈述和反向陈述的三元组。后续工作批评主流价值观框架可能压制少数道德声音（CMoralEval (2024)），国家价值对齐是结果导向且未测试程序多元性（MoReBench (2025)），以及新闻衍生陈述不如MFQ轴提供更好的心理测量框架（MFQ-2 (2023)）。作者自承局限包括五国样本、主流立场标签压制多元性和新闻来源偏差。",
+    "_meta": {
+      "row": 35,
+      "tag": null,
+      "cite": "NaVAB (2025)",
+      "pillar": "humancentered",
+      "survey_passage_count": 3
+    }
+  },
+  "VITAL": {
+    "短名": "VITAL",
+    "lineage_critiques": [
+      "Recent benchmark; few public critiques. Healthcare specificity may limit cross-domain transfer. — 出处简称"
+    ],
+    "self_limits": "Authors note clinical specificity; English; pluralistic disagreement scoring is heuristic.",
+    "external_views": [
+      "VITAL [Shetty et al., 2025] is a benchmark dataset for pluralistic alignment in healthcare, comprising 13.1K situations and 5.4K MCQs. It aims to address the ”monolithic preference” issue in current LLMs’ medical ethical decision-making. By introducing conflicting perspectives in medical ethics (e.g., the trade-off between autonomy and efficiency), VITAL evaluates the alignment stability of models within multi-cultural and multi-community contexts. — Survey 第 X 段"
+    ],
+    "synthesis": "综述指出，VITAL 是一个用于医疗保健中多元对齐的基准数据集，包含 13.1K 个情境和 5.4K 个多选题。它旨在解决当前 LLMs 在医疗伦理决策中的“单一偏好”问题。通过引入冲突视角，VITAL 评估了模型在多文化和多社区环境中的对齐稳定性。后续工作批评其医疗特异性可能限制跨领域迁移。作者自承局限包括临床特异性、英语语言以及多元分歧评分的启发式方法。",
+    "_meta": {
+      "row": 36,
+      "tag": null,
+      "cite": "VITAL (2025)",
+      "pillar": "humancentered",
+      "survey_passage_count": 3
+    }
+  },
+  "TrustMH-Bench": {
+    "短名": "TrustMH-Bench",
+    "lineage_critiques": [
+      "HeartBench (2025) / SMILE (2024) precursors: TrustMH-Bench broader but less deep on each axis."
+    ],
+    "self_limits": "Authors note Chinese+English; LLM-as-judge dependency; mental-health professional validation incomplete.",
+    "external_views": [],
+    "synthesis": "后续工作批评TrustMH-Bench在每个轴上不够深入。作者自承局限包括依赖中文和英文、LLM作为评判者以及心理健康专业验证不完整。",
+    "_meta": {
+      "row": 37,
+      "tag": null,
+      "cite": "TrustMH-Bench (2026)",
+      "pillar": "humancentered",
+      "survey_passage_count": 0
+    }
+  },
+  "WVS": {
+    "短名": "WVS",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "The World Values Survey (WVS) [noa, 2012] is a comprehensive cross-cultural study of human values, examining the evolution of social, cultural, political, and religious values across the globe. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，WVS 是一项全面的跨文化人类价值观研究，考察了全球社会、文化、政治和宗教价值观的演变。",
+    "_meta": {
+      "row": 39,
+      "tag": null,
+      "cite": "WVS / World Values Survey (2012)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "PsycoLLM": {
+    "短名": "PsycoLLM",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述未提及该基准，且无后续工作批评。",
+    "_meta": {
+      "row": 40,
+      "tag": null,
+      "cite": "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "SOCKET": {
+    "短名": "SOCKET",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "from real examples collected in online forums (e.g., SOCKET), thereby combining standardized assessments with naturally occurring emotional expressions. — Survey"
+    ],
+    "synthesis": "综述指出，SOCKET 从在线论坛收集真实例子，结合标准化评估和自然情感表达。",
+    "_meta": {
+      "row": 41,
+      "tag": null,
+      "cite": "SOCKET (2023)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "SOCIAL-CHEM-101": {
+    "短名": "SOCIAL-CHEM-101",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述指出，该基准在构建清晰度、规范基础、来源和证据适用性等方面需要更详细的说明。此外，其主要基于描述性的社区规范，缺乏法律或伦理理论的校准，并且存在美国/英语/Reddit偏差明显的问题。",
+    "_meta": {
+      "row": 42,
+      "tag": null,
+      "cite": "SOCIAL-CHEM-101 (2020)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "EtiCor": {
+    "短名": "EtiCor",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述指出，EtiCor面向LLM的多地区伦理/社会规范语料，但需补充更细说明和更完整的数据卡及偏差说明。",
+    "_meta": {
+      "row": 43,
+      "tag": null,
+      "cite": "EtiCor (2023)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "MoralBench": {
+    "短名": "MoralBench",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "Yet these values remain fragmented and imbalanced: for instance, MIC reports that informational–utility values dominate (over 66%), while socio-democratic values such as justice and human rights are underrepresented. — Survey"
+    ],
+    "synthesis": "综述指出，这些价值碎片化且不平衡：例如，信息-效用价值占主导（超过66%），而社会民主价值如正义和人权则不足。",
+    "_meta": {
+      "row": 44,
+      "tag": null,
+      "cite": "MoralBench / MIC (survey-mentioned value benchmarks)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "MFTCXplain": {
+    "短名": "MFTCXplain",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "Another increasingly important subdimension is interactive controllability. Here, the problem is not only that a model may be wrong, but that it may align with user beliefs rather than objective evidence. The sycophancy benchmark introduced in Disco—A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，MFTCXplain关注多语言解释维度，但需注意模型可能与用户信念而非客观证据对齐的问题。",
+    "_meta": {
+      "row": 45,
+      "tag": null,
+      "cite": "MFTCXplain (survey-mentioned)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "BBQ": {
+    "短名": "BBQ",
+    "lineage_critiques": [
+      "explicitly critiques BBQ for English-only and US categories; ~70% of BBQ items unsuitable for Korean culture; introduces 5 new Korean dimensions. — Jin 2024 (KoBBQ)",
+      "BBQ misses Chinese-relevant categories like region/hukou/educational background; only 9 dimensions vs 14 in CBBQ. — Huang & Xiong 2024 (CBBQ)",
+      "BBQ's 9 axes are too coarse compared to 600+ HolisticBias descriptors. — Smith 2022 (HolisticBias)"
+    ],
+    "self_limits": "Authors note US-English social biases only; nine categories; relies on attested-stereotype literature.",
+    "external_views": [
+      "BBQ (Bias Benchmark for QA) [Parrish et al., 2022] is a hand-built dataset designed to evaluate social biases in question answering systems across nine social dimensions in U.S. English contexts. It consists of over 58,000 examples structured into ambiguous and disambiguated contexts, where clear evidence is provided to see if the model’s internal biases override factual information. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，BBQ 是一个用于评估美国英语语境下问答系统社会偏见的手工构建数据集，包含九个维度的58,000多个实例。后续工作批评其仅限于英语和美国文化，且维度较粗，需要本土化扩展。",
+    "_meta": {
+      "row": 46,
+      "tag": "Fairness&inclusive",
+      "cite": "BBQ",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "Kleinberg-FairTradeoffs": {
+    "短名": "Kleinberg-FairTradeoffs",
+    "lineage_critiques": [],
+    "self_limits": "Limited to risk-score calibration setting; impossibility holds only when base rates differ across groups.",
+    "external_views": [],
+    "synthesis": "本文形式化三条公平性条件并证明其在不同基率下不可同时满足。作者自承局限在于仅适用于风险评分校准设置，且当各组基率不同时才成立。",
+    "_meta": {
+      "row": 47,
+      "tag": null,
+      "cite": "Kleinberg-FairTradeoffs (2016)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "GAP": {
+    "短名": "GAP",
+    "lineage_critiques": [
+      "Wikipedia text + ambiguous pronouns is artificial; lacks naturalistic occupational stereotype signal. — Levy 2021 (BUG)",
+      "binary gender only; ignores LGBTQ+ identities. — Felkner 2023 (WinoQueer)",
+      "treats gender as binary he/she, no neutral 'they' baseline. — Vanmassenhove 2021 (NeuTral)"
+    ],
+    "self_limits": "English Wikipedia only; binary masculine/feminine pronouns; coreference task only.",
+    "external_views": [],
+    "synthesis": "综述指出 GAP 数据集仅基于英语维基百科，且只考虑二元性别。后续工作批评其构造的人为性及缺乏自然刻板印象信号（Levy 2021），忽略 LGBTQ+ 身份（Felkner 2023），以及没有中性 'they' 基线（Vanmassenhove 2021）。",
+    "_meta": {
+      "row": 48,
+      "tag": null,
+      "cite": "GAP (2018)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "WinoBias": {
+    "短名": "WinoBias",
+    "lineage_critiques": [
+      "same as Winogender — synthetic, scale-limited. — Levy 2021 (BUG)",
+      "binary; LGBTQ+ identities absent. — Felkner 2023 (WinoQueer)",
+      "WinoBias+ extends with neutral pronouns; original WinoBias hard-codes binary gender. — Vanmassenhove 2021 (NeuTral)",
+      "limited to occupational stereotypes from BLS; no race/age/disability axes. — Stanovsky 2019 et seq."
+    ],
+    "self_limits": "Templates and 40 occupations; English; gender as he/she only.",
+    "external_views": [
+      "WinoBias was the first to test gender bias in coreference, but it only covers this narrow task. — Survey 第 425 段"
+    ],
+    "synthesis": "综述指出 WinoBias 是首个测试共指中的性别偏见的基准，但仅覆盖这一狭窄任务。后续工作批评其数据合成且规模有限、缺少LGBTQ+身份、硬编码二元性别，并且局限于职业刻板印象，未涵盖种族、年龄、残疾等轴。",
+    "_meta": {
+      "row": 49,
+      "tag": null,
+      "cite": "WinoBias (2018)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "Winogender": {
+    "短名": "Winogender",
+    "lineage_critiques": [
+      "synthetic templates underestimate real-world bias; tiny size (720 sentences); cannot stress-test models. — Levy 2021 (BUG)",
+      "only binary gender + 'they'; no LGBTQ+ axis. — Felkner 2023 (WinoQueer)",
+      "Winogender pairs forced into binary categorization, no neutral targets. — Vanmassenhove 2021 (NeuTral Rewriter)",
+      "occupation axis only, ignores hundreds of other demographic descriptors. — Smith 2022 (HolisticBias)"
+    ],
+    "self_limits": "Diagnostic, not training; binary occupation set; synthetic templates.",
+    "external_views": [
+      "WinoBias was the first to test gender bias in coreference, but it only covers this narrow task. Winogender serves as a diagnostic benchmark to quantify gender bias in coreference resolution systems using 120 hand-crafted templates across 60 occupations. — Survey 第 425-430 段"
+    ],
+    "synthesis": "综述指出 Winogender 是诊断基准，使用 120 手工模板和 60 职业来量化共指解析中的性别偏见。后续工作批评其仅覆盖狭窄任务，未涵盖其他社会维度，且合成模板低估了现实世界偏见。",
+    "_meta": {
+      "row": 50,
+      "tag": null,
+      "cite": "Winogender (2018)",
+      "pillar": "fairness",
+      "survey_passage_count": 1
+    }
+  },
+  "BEC-pro": {
+    "短名": "BEC-pro",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述未提及 BEC-pro，且无后续工作批评。",
+    "_meta": {
+      "row": 51,
+      "tag": null,
+      "cite": "BEC-pro (2020)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "CrowS-Pairs": {
+    "短名": "CrowS-Pairs",
+    "lineage_critiques": [
+      "stereotyping content underspecified, many examples invalid; construct of 'social bias' not operationalized. — Blodgett 2021",
+      "PLL metric sensitive to spurious lexical differences. — Nadeem 2021 (StereoSet) & later authors",
+      "US-centric stereotypes; not transferable to other cultures. — Jin 2024 (KoBBQ)",
+      "no Chinese-context categories (region, hukou). — Huang 2024 (CBBQ)"
+    ],
+    "self_limits": "MTurk workers from US/UK; English; possibly noisy crowd judgements; nine fixed categories.",
+    "external_views": [
+      "A key challenge across fairness benchmarks is the trade-off between quantity and quality. Aribandi et al. (2021) show that although CrowS-Pairs maintains higher data quality, its small size leads to high variance within specific categories; for example, religious-bias results differ sharply between StereoSet and CrowS-Pairs simply because one has more samples. — Survey"
+    ],
+    "synthesis": "综述指出，CrowS-Pairs 虽然数据质量较高，但样本量小导致特定类别内方差高。后续工作批评其刻板印象内容不明确、许多示例无效，且社会偏见构念未操作化；PLL 指标对词汇差异敏感；美国中心主义刻板印象难以跨文化转移；缺少中文背景类别。",
+    "_meta": {
+      "row": 52,
+      "tag": null,
+      "cite": "CrowS-Pairs (2020)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "Dev-WordEmbed": {
+    "短名": "Dev-WordEmbed",
+    "lineage_critiques": [
+      "static embedding probes are decoupled from real downstream usage and dialog generation. — Smith 2022 (HolisticBias)",
+      "bias measured intrinsically in embeddings does not transfer to generation behavior. — Dhamala 2021 (BOLD)",
+      "construct underspecified. — Blodgett 2021 (Stereotyping Norwegian Salmon, applies to many MLM/embedding probes)"
+    ],
+    "self_limits": "Focused on embedding-level intervention; downstream effect partial.",
+    "external_views": [],
+    "synthesis": "后续工作批评该基准的构念漂浮、内在度量与生成行为脱节。作者自承其干预主要在嵌入层面，下游效果部分。",
+    "_meta": {
+      "row": 53,
+      "tag": null,
+      "cite": "Dev-WordEmbed (2020)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "UnQover": {
+    "短名": "UnQover",
+    "lineage_critiques": [
+      "UnQover's reversal control is good but ambiguous-context Qs lack a 'correct' answer; only measures relative preference, not absolute harm. — Parrish 2022 (BBQ)",
+      "English-only; protected-class taxonomy follows US categories. — Jin 2024 (KoBBQ) & Huang 2024 (CBBQ)",
+      "4 axes is too few. — Smith 2022 (HolisticBias)"
+    ],
+    "self_limits": "\"Synthetic templates; subject-name based stereotypes; English.\"",
+    "external_views": [],
+    "synthesis": "后续工作批评 UnQover 的反转控制虽好但模糊情境题缺乏正确答案，仅测量相对偏好，不衡量绝对伤害；仅限于英语且分类基于美国标准；四个轴太少。自承局限包括合成模板、基于主题名称的刻板印象和仅限英语。",
+    "_meta": {
+      "row": 54,
+      "tag": null,
+      "cite": "UnQover (2020)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "WikiGenderBias": {
+    "短名": "WikiGenderBias",
+    "lineage_critiques": [
+      "RE-only; dimensional coverage limited to 4 relations. — Smith 2022 (HolisticBias)",
+      "Wikipedia source skews male-biased; data inherits encyclopedic biases. — Smith 2022 (HolisticBias)",
+      "binary gender; LGBTQ+ erased. — Felkner 2023"
+    ],
+    "self_limits": "Authors note Wikipedia underrepresents women (~18% of biographies); 4 relations only.",
+    "external_views": [
+      "The WikiGenderBias[Gaut et al., 2020] is a diagnostic benchmark specifically designed for neural relation extraction, consisting of over 45,000 sentences extracted from Wikipedia via distant supervision. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，WikiGenderBias 是一个专门用于神经关系抽取的诊断基准，包含超过 45,000 个来自维基百科的句子。后续工作批评其仅覆盖 4 种关系且数据继承了维基百科的性别偏见，LGBTQ+ 群体被忽略。作者自承维基百科中女性传记占比低（约 18%），且只涵盖 4 种关系。",
+    "_meta": {
+      "row": 55,
+      "tag": null,
+      "cite": "WikiGenderBias (2020)",
+      "pillar": "fairness",
+      "survey_passage_count": 1
+    }
+  },
+  "BOLD": {
+    "短名": "BOLD",
+    "lineage_critiques": [
+      "5 axes & ~600 descriptors not covered; uses Wikipedia which propagates encyclopedic bias. — Smith 2022 (HolisticBias)",
+      "sentiment/regard metrics correlate weakly with hurtfulness; English-only. — Nozza 2021 (HONEST)",
+      "no LGBTQ+ subgroups. — Felkner 2023 (WinoQueer)"
+    ],
+    "self_limits": "Authors flag Wikipedia coverage bias and that automatic toxicity classifiers themselves contain bias.",
+    "external_views": [],
+    "synthesis": "后续工作批评 BOLD 的 5 个轴和约 600 个描述符覆盖不足，情感/关注度指标与伤害性弱相关，且仅限英语。作者自承 Wikipedia 覆盖偏差和自动毒性分类器本身存在偏差。",
+    "_meta": {
+      "row": 56,
+      "tag": null,
+      "cite": "BOLD (2021)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "BUG": {
+    "短名": "BUG",
+    "lineage_critiques": [
+      "binary gender; no LGBTQ+ extension. — Felkner 2023",
+      "occupation-axis only. — Smith 2022",
+      "binary pronoun mining. — Vanmassenhove 2021"
+    ],
+    "self_limits": "Authors note 'gold' subset still small (~1.7k); naturalistic mining surfaces messy text; English only.",
+    "external_views": [],
+    "synthesis": "综述指出，后续工作批评该基准仅限于二元性别且未扩展到LGBTQ+（Felkner 2023），仅关注职业轴（Smith 2022），以及仅限英语和二元代词挖掘（Vanmassenhove 2021）。作者自承局限包括'gold'子集较小、自然文本杂乱及仅限英语。",
+    "_meta": {
+      "row": 57,
+      "tag": null,
+      "cite": "BUG (2021)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "HONEST": {
+    "短名": "HONEST",
+    "lineage_critiques": [
+      "only binary gender; few descriptors. — Smith 2022 (HolisticBias)",
+      "gender binary, no LGBTQ+; HurtLex coverage of slurs incomplete. — Felkner 2023",
+      "HurtLex resource quality varies sharply across languages. — Authors of multilingual studies"
+    ],
+    "self_limits": "Reliance on HurtLex; binary gender; cloze format limits realism.",
+    "external_views": [],
+    "synthesis": "后续工作批评HONEST仅考虑二元性别，缺少LGBTQ+等其他保护属性(Smith 2022, Felkner 2023)。此外，HurtLex词典在不同语言间的质量差异较大(多语言研究指出)。作者自承依赖于HurtLex、二元性别设定以及cloze格式限制了现实性。",
+    "_meta": {
+      "row": 58,
+      "tag": null,
+      "cite": "HONEST (2021)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "NeuTral-WinoBiasPlus": {
+    "短名": "NeuTral-WinoBiasPlus",
+    "lineage_critiques": [
+      "neutral 'they' is one step but does not capture LGBTQ+ identities or stereotypes. — Felkner 2023 (WinoQueer)",
+      "one-axis (gender) rewriter does not cover other identities. — Smith 2022 (HolisticBias)",
+      "Pre-trained MT models perform poorly on neutral forms in many languages — extension to non-English limited."
+    ],
+    "self_limits": "English-only; rule-based fallback for uncovered constructions; evaluates rewriting quality, not downstream harm.",
+    "external_views": [],
+    "synthesis": "后续工作批评 NeuTral-WinoBiasPlus 仅使用中性代词'they'，未能涵盖LGBTQ+身份或刻板印象（Felkner 2023），且仅关注性别维度而忽略其他身份（Smith 2022）。此外，预训练的MT模型在许多语言中的中性形式表现不佳，限制了其扩展到非英语环境。作者自承局限包括仅限英语、规则覆盖不足及未评估下游伤害。",
+    "_meta": {
+      "row": 59,
+      "tag": null,
+      "cite": "NeuTral-WinoBiasPlus (2021)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "RedditBias": {
+    "短名": "RedditBias",
+    "lineage_critiques": [
+      "Reddit demographics skewed (mostly young Western males) → coverage gap. — Smith 2022 (HolisticBias)",
+      "queerness category exists but is shallow; community-in-the-loop missing. — Felkner 2023 (WinoQueer)",
+      "PPL-style metric still intrinsic-leaning. — Generation-bench critiques"
+    ],
+    "self_limits": "Authors flag Reddit demographic skew and English-only; perplexity-based metric still proxies bias rather than harm.",
+    "external_views": [
+      "Unlike previous benchmarks that rely on synthetic templates, RedditBias captures authentic biases across four dimensions: gender, race, religion, and queerness. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，RedditBias 捕捉了性别、种族、宗教和酷儿四个维度的真实偏见。后续工作批评其用户群体主要为年轻西方男性，存在覆盖缺口；酷儿类别较浅且缺少社区参与；困惑度指标仍偏向内在。作者自承数据来源偏差及仅限英语。",
+    "_meta": {
+      "row": 60,
+      "tag": null,
+      "cite": "RedditBias (2021)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "StereoSet": {
+    "短名": "StereoSet",
+    "lineage_critiques": [
+      "MTurk-collected stereotypes are noisy, often invalid, construct unclear. — Blodgett 2021",
+      "SS metric distorted when sentences differ in fluency. — Nangia 2020",
+      "4 axes insufficient; English/US categories only. — Smith 2022, Jin 2024, Huang 2024"
+    ],
+    "self_limits": "MTurk crowdsourcing risk; only 4 stereotype domains; English.",
+    "external_views": [
+      "StereoSet [Nadeem et al., 2021] is a large-scale, natural English benchmark designed to quantify stereotypical biases in pretrained language models across four domains: gender, profession, race, and religion. — Survey 第 574 段"
+    ],
+    "synthesis": "综述指出，StereoSet 是一个大规模的英语基准，用于量化预训练语言模型在性别、职业、种族和宗教四个领域的刻板偏见。后续工作批评其众包收集的刻板印象噪声大且构念不清晰，SS 指标受流畅度干扰，且仅覆盖四个领域和英语/美国类别。作者自承局限包括众包风险、仅四个刻板印象领域和英语限制。",
+    "_meta": {
+      "row": 61,
+      "tag": null,
+      "cite": "StereoSet (2021)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "HolisticBias": {
+    "短名": "HolisticBias",
+    "lineage_critiques": [
+      "even HolisticBias's LGBTQ+ axis is descriptor-list-based; community endorsement weaker than WinoQueer's iterative loop. — Felkner 2023 (WinoQueer)",
+      "still English/US-centric in descriptor sourcing. — Jin 2024",
+      "cultural translation of HolisticBias to Chinese non-trivial; many descriptors not applicable. — Huang 2024 (CBBQ)"
+    ],
+    "self_limits": "Authors note descriptors are English; some categories (caste, neurodiversity) under-validated; templates are short.",
+    "external_views": [
+      "Recent work such as HolisticBias (Smith et al., 2022) and WinoQueer (Felkner et al., 2023) shows the value of participatory design, where people from affected communities help decide which harms should be represented. — Survey 第 645 段"
+    ],
+    "synthesis": "综述指出，HolisticBias 的参与式设计有助于受影响社区决定应代表哪些伤害。后续工作批评其LGBTQ+轴基于描述符列表，社区认可度较弱；仍以英语/美国为中心；翻译到中文时许多描述符不适用。作者自承描述符为英语，某些类别验证不足，模板较短。",
+    "_meta": {
+      "row": 63,
+      "tag": null,
+      "cite": "HolisticBias (2022)",
+      "pillar": "fairness",
+      "survey_passage_count": 1
+    }
+  },
+  "Panda": {
+    "短名": "Panda",
+    "lineage_critiques": [
+      "Panda only 3 axes; HolisticBias extends to 13 axes. — Smith 2022 (HolisticBias)",
+      "perturbation may produce ungrammatical or culturally awkward outputs in low-resource settings. — Real-world deployment papers",
+      "Panda is English-only; perturber not transferable. — Jin 2024"
+    ],
+    "self_limits": "Authors flag English-only and 3-axis scope; perturber accuracy ~92%, errors propagate.",
+    "external_views": [],
+    "synthesis": "后续工作批评Panda仅涵盖三个轴（性别、种族/民族和年龄），而HolisticBias扩展到13个轴。此外，扰动在低资源环境下可能产生不合语法或文化上不合适的输出，并且Panda仅限于英语，扰动器不可转移。作者自承局限包括仅限英语和三个轴的范围，以及扰动器准确率约为92%，错误会传播。",
+    "_meta": {
+      "row": 64,
+      "tag": null,
+      "cite": "Panda (2022)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "Grep-BiasIR": {
+    "短名": "Grep-BiasIR",
+    "lineage_critiques": [
+      "HolisticBias / WinoQueer perspective: binary gender only; small (118). — HolisticBias/WinoQueer",
+      "IR community: relevance judgments are coarse; no LGBTQ+ extension. — IR community"
+    ],
+    "self_limits": "Authors flag small scale (118 queries) and binary gender.",
+    "external_views": [],
+    "synthesis": "后续工作批评其仅考虑二元性别且规模小（118个查询），相关性判断粗糙，未扩展到LGBTQ+。作者自承局限在于规模小和二元性别设置。",
+    "_meta": {
+      "row": 65,
+      "tag": null,
+      "cite": "Grep-BiasIR (2023)",
+      "pillar": "fairness",
+      "survey_passage_count": 0
+    }
+  },
+  "TrustGPT": {
+    "短名": "TrustGPT",
+    "lineage_critiques": [
+      "broader trustworthiness coverage; TrustGPT's value-alignment narrowly defined. — TrustLLM (2024)",
+      "doesn't cover sycophancy. — Sycophancy (2025)",
+      "TrustGPT's three axes mixed without clear operationalization. — Construct validity literature"
+    ],
+    "self_limits": "Authors flag work-in-progress; metrics heuristic.",
+    "external_views": [],
+    "synthesis": "后续工作批评TrustGPT的价值对齐定义狭窄，未涵盖谄媚行为，且三个轴线混合不清。作者自承为进行中的工作，指标具有启发性。",
+    "_meta": {
+      "row": 67,
+      "tag": null,
+      "cite": "TrustGPT (2023)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 0
+    }
+  },
+  "WinoQueer": {
+    "短名": "WinoQueer",
+    "lineage_critiques": [
+      "Future surveys: still English-only; fluency artifacts in templates. — 后续工作批评",
+      "Generation-side critique: pseudo-log-likelihood metric still intrinsic, not deployment-grounded. — 后续工作批评"
+    ],
+    "self_limits": "English-only; MLM PLL metric; sample of US-context stereotypes; community covers but cannot exhaust queer identity space.",
+    "external_views": [
+      "The WinoQueer dataset is a community-in-the-loop benchmark designed to quantify anti-LGBTQ+ bias in large language models. It consists of over 58,000 examples structured to test model behavior in two scenarios: ambiguous — Survey 第 469 段"
+    ],
+    "synthesis": "综述指出，WinoQueer 是一个社区参与的基准，旨在量化大型语言模型中的反 LGBTQ+ 偏见。后续工作批评其未来调查仍为英语且模板可能存在流畅度问题；伪对数似然指标仍为内在指标，非部署导向。自承局限包括仅限英语、样本局限于美国背景的刻板印象、无法穷尽所有酷儿身份空间。",
+    "_meta": {
+      "row": 68,
+      "tag": null,
+      "cite": "WinoQueer (2023)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "CBBQ": {
+    "短名": "CBBQ",
+    "lineage_critiques": [
+      "AI-assisted generation may amplify model biases; manual review coverage uneven. — Recent Chinese fairness surveys",
+      "QA-only; does not test multi-turn or generation drift. — Recent Chinese fairness surveys"
+    ],
+    "self_limits": "Authors note AI-assistance may inject model bias; some categories (e.g., 户籍) hard to ground in legal sources.",
+    "external_views": [
+      "Building upon the contrastive framework of BBQ, CBBQ[Huang and Xiong, 2024] achieves a profound cultural migration from English-centric contexts to Chinese societal values. Its primary innovation lies in the introduction of 14 social bias dimensions tailored to the Chinese national context. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，CBBQ在文化适配方面有显著创新，引入了14个本土社会偏见维度。后续工作批评其AI辅助生成可能放大模型偏差，手动审查覆盖不均，且仅使用QA任务未测试多轮对话或生成漂移。作者自承AI辅助可能引入模型偏差，部分类别如户籍难以在法律来源中找到明确依据。",
+    "_meta": {
+      "row": 69,
+      "tag": null,
+      "cite": "CBBQ (2024)",
+      "pillar": "fairness",
+      "survey_passage_count": 3
+    }
+  },
+  "KoBBQ": {
+    "短名": "KoBBQ",
+    "lineage_critiques": [
+      "Future surveys: still QA-only; not generation; LLM judge variance.",
+      "Coverage of Korean dialects/regions partial."
+    ],
+    "self_limits": "Authors note ambiguous-context labels reflect Korean majority view; LLM-as-judge calibration limited.",
+    "external_views": [
+      "BBQ’s modular design has already enabled more than eight cultural and linguistic extensions (e.g., CBBQ, KoBBQ, BharatBBQ, JBBQ), demonstrating far greater scalability than earlier benchmarks. — Survey"
+    ],
+    "synthesis": "综述指出，KoBBQ 展现了 BBQ 模块化设计的扩展性，但后续工作批评其仍为 QA-only，未涵盖生成任务，且 LLM 作为评判者的变异性问题。作者自承在模糊情境标签上反映了韩国多数观点，并且 LLM 作为评判者的校准有限。此外，覆盖韩国方言和地区不完全。",
+    "_meta": {
+      "row": 70,
+      "tag": null,
+      "cite": "KoBBQ (2024)",
+      "pillar": "fairness",
+      "survey_passage_count": 1
+    }
+  },
+  "FLEX": {
+    "短名": "FLEX",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 425 段：FLEX adds something new by testing how models behave under small adversarial changes, revealing weaknesses that static benchmarks cannot detect.」"
+    ],
+    "synthesis": "综述指出，FLEX 通过测试模型在小幅对抗变化下的行为，揭示了静态 benchmark 无法检测到的弱点。",
+    "_meta": {
+      "row": 72,
+      "tag": null,
+      "cite": "FLEX (2025)",
+      "pillar": null,
+      "survey_passage_count": 3
+    }
+  },
+  "Phare": {
+    "短名": "Phare",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 025 段：New frameworks such as Phare (generation–discrimination gap) and FLEX (adversarial sensitivity) further show that traditional QA benchmarks miss important types of harm.」"
+    ],
+    "synthesis": "综述指出，Phare（生成-判别差距）等新框架表明，传统的问答基准测试忽略了重要的伤害类型。",
+    "_meta": {
+      "row": 73,
+      "tag": null,
+      "cite": "Phare (2025)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "RealToxicityPrompts": {
+    "短名": "RealToxicityPrompts",
+    "lineage_critiques": [
+      "RealToxicityPrompts captures only explicit toxic completions; misses implicit hate; relies entirely on Perspective API which has demographic bias. — ToxiGen (2022)",
+      "web-scraped prompts ≠ real user-LLM conversation distribution. — ToxicChat (2023)",
+      "toxicity prompts ≠ harmful behavior elicitation; doesn't test safe-completion vs over-refusal. — HarmBench (2024)",
+      "'toxicity' construct underspecified by Perspective API. — Blodgett-style critique"
+    ],
+    "self_limits": "Authors flag that Perspective API may have biases against AAVE; web-scraped prompts have demographic skew.",
+    "external_views": [
+      "REALTOXICITYPROMPTS[Gehman et al., 2020a; ?] is a large-scaled dataset that tests whether language models produce toxic continuations when given web-derived sentence fragments. It contains 100,000 prompts from OpenWebText — Survey 第 785 段"
+    ],
+    "synthesis": "综述指出 RealToxicityPrompts 是一个大规模数据集，用于测试语言模型在给定网络句子片段时是否会生成有毒延续。后续工作批评其仅捕捉显式毒性，错过隐含仇恨，并且依赖有偏见的 Perspective API。作者自承该 API 可能对 AAVE 有偏见，且网络抓取的提示具有人口统计偏差。",
+    "_meta": {
+      "row": 77,
+      "tag": null,
+      "cite": "RealToxicityPrompts (2020)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "HateCheck": {
+    "短名": "HateCheck",
+    "lineage_critiques": [
+      "ToxiGen (2022): functional templates are synthetic; miss generative-model-produced implicit hate. — ToxiGen (2022)",
+      "ToxicChat (2023): English-only and template-based; doesn't capture real user conversational toxicity. — ToxicChat (2023)",
+      "Multilingual HateCheck (later): English-only original is a coverage gap. — Multilingual HateCheck"
+    ],
+    "self_limits": "Authors note English-only; protected groups are limited to 7; functionalities don't cover code-mixing or multimodal hate.",
+    "external_views": [
+      "HATECHECK’s [Ro¨ttger et al., 2021] core idea is functional testing: it replaces random sampling with 29 hand-crafted test categories that capture fine-grained hate-speech expressions and difficult contrastive — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，HateCheck通过29类手工测试案例捕捉细粒度的仇恨言论表达。后续工作批评其模板生成的数据无法捕捉生成模型产生的隐性仇恨（ToxiGen, 2022），且仅限于英语，未能捕捉真实用户对话中的毒性（ToxicChat, 2023）。作者自承局限包括仅限英语、受保护群体有限以及功能不涵盖代码混合或多模态仇恨。",
+    "_meta": {
+      "row": 78,
+      "tag": null,
+      "cite": "HateCheck (2021)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "ToxiGen": {
+    "短名": "ToxiGen",
+    "lineage_critiques": [
+      "GPT-3-generated content ≠ real user posts; distribution shift. — ToxicChat (2023)",
+      "machine-generated implicit hate may not generalize to organic implicit hate. — HateCheck-style critique",
+      "focused on classifier benchmark; doesn't test LLM safety responses. — HarmBench (2024)"
+    ],
+    "self_limits": "Authors flag GPT-3 training data leakage risk and that machine-generated hate has different distribution from organic hate.",
+    "external_views": [
+      "ToxiGen [Hartvigsen et al., 2022] is a large, balanced machine-generated dataset containing 274,000 harmful and benign statements targeting 13 minority groups. A key feature is that 98.2 percent of its harmful statements are implicitly toxic. — Survey"
+    ],
+    "synthesis": "综述指出，ToxiGen 包含 274,000 条针对 13 个少数群体的有害和良性语句，其中 98.2% 的有害语句是隐性有毒的。后续工作批评其 GPT-3 生成内容与真实用户帖子分布不同，且机器生成的隐性仇恨可能无法泛化到自然产生的隐性仇恨。作者自承 GPT-3 训练数据泄漏风险及机器生成仇恨与自然仇恨分布不同。",
+    "_meta": {
+      "row": 79,
+      "tag": null,
+      "cite": "ToxiGen (2022)",
+      "pillar": "safety",
+      "survey_passage_count": 3
+    }
+  },
+  "ToxicChat": {
+    "短名": "ToxicChat",
+    "lineage_critiques": [
+      "OpenAI Moderation API agreement with ToxicChat is low — moderator API biased.",
+      "conversation-only; lacks systematic red-teaming attacks.",
+      "English-only, no multimodal."
+    ],
+    "self_limits": "Authors flag that Vicuna-only data may not generalize to other LLMs; English-only; user demographics unknown.",
+    "external_views": [
+      "TOXICCHAT [Lin et al., 2023] is the first toxicity detection benchmark constructed from real-world user-AI interactions (via Vicuna), comprising 10,166 high-quality annotated examples. The dataset highlights nuanced phenomena unique"
+    ],
+    "synthesis": "综述指出，ToxicChat 是首个基于真实用户与 AI 互动的毒性检测基准，包含 10,166 条高质量标注数据。后续工作批评其仅限于对话、缺乏系统性红队攻击、仅支持英语且无多模态。作者自承局限包括数据仅来自 Vicuna 可能不具普适性、仅支持英语及用户人口统计未知。",
+    "_meta": {
+      "row": 80,
+      "tag": null,
+      "cite": "ToxicChat (2023)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "Chinese-Safeguard": {
+    "短名": "Chinese-Safeguard",
+    "lineage_critiques": [
+      "smaller scale; flat taxonomy. — SALAD-bench (2024)",
+      "single-turn refusal-only. — Agent-SafetyBench (2025)",
+      "text-only. — MM-SafetyBench (2024)"
+    ],
+    "self_limits": "Authors note Chinese-specific framing limits cross-cultural transfer; LLM-as-judge for policy compliance has variance.",
+    "external_views": [],
+    "synthesis": "后续工作批评其规模较小、分类体系扁平、仅限单轮拒绝任务且只有文本形式。作者自承中文特定框架限制跨文化迁移，LLM-as-judge 的政策合规性存在差异。",
+    "_meta": {
+      "row": 81,
+      "tag": null,
+      "cite": "Chinese-Safeguard (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 0
+    }
+  },
+  "Do-not-answer": {
+    "短名": "Do-not-answer",
+    "lineage_critiques": [
+      "939 prompts is small; categories not hierarchical enough. — SALAD-bench (2024)",
+      "single-turn refusal evaluation doesn't cover sophisticated jailbreaks. — HarmBench (2024)",
+      "English-only; categories need localization for Chinese context. — Wang Chinese 2024",
+      "doesn't test over-refusal of safe-but-similar prompts. — XSTest (2024) family"
+    ],
+    "self_limits": "Authors note English; category hierarchy may not generalize; LLM-as-judge for refusal classification may be biased.",
+    "external_views": [
+      "Do-Not-Answer[Wang et al., 2024a] builds a layered safety framework that combines a three-level taxonomy of 61 fine-grained risk types with a behavioral scheme of six ActionCategories, ranging from refusal to full compliance. — Survey 第 787 段"
+    ],
+    "synthesis": "综述指出 Do-Not-Answer 构建了三层分类法和六类行为响应的安全框架。后续工作批评其 prompt 数量较少、类别层次不够细化、仅限英文且未测试复杂的越狱攻击。作者自承局限在于英语环境、类别层次可能不具普适性以及使用 LLM 作为拒绝分类器可能存在偏见。",
+    "_meta": {
+      "row": 82,
+      "tag": null,
+      "cite": "Do-not-answer (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 3
+    }
+  },
+  "FFT": {
+    "短名": "FFT",
+    "lineage_critiques": [
+      "three axes mixed; constructs not separately operationalized. — SALAD-bench (2024)",
+      "MCQ format limits coverage of generative behavior. — SafetyBench (2024)",
+      "'harmlessness' as joint of fact+fair+tox conflates orthogonal dimensions. — Construct validity literature"
+    ],
+    "self_limits": "Workshop paper (KDD); authors note three axes mixed; size 2116 limits subgroup analysis.",
+    "external_views": [
+      "The FFT[Cui et al., 2024] dataset is a pioneering benchmark designed to provide a comprehensive evaluation of the harmlessness of Large Language Models (LLMs). Diverging from traditional assessments that focus primarily on toxic content, FFT introduces 2,116 meticulously crafted instances evaluated across three core dimensions: Factuality, Fairness, and Toxicity. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，FFT 是一个综合评估 LLMs 的无害性的基准，涵盖事实性、公平性和毒性三个核心维度。后续工作批评其三个轴混合且未单独操作化，MCQ 格式限制了生成行为的覆盖，并认为 '无害性' 作为事实、公平和毒性的联合混淆了正交维度。作者自承该论文为 KDD 工作坊论文，三个轴混合，规模限制了子组分析。",
+    "_meta": {
+      "row": 83,
+      "tag": null,
+      "cite": "FFT (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 3
+    }
+  },
+  "HarmBench": {
+    "短名": "HarmBench",
+    "lineage_critiques": [
+      "「HarmBench tests under-refusal but not over-refusal.」— XSTest (2024)",
+      "「action-grounded harm not covered.」— Agent-SafetyBench (2025)",
+      "「multimodal red-teaming partial.」— JailBreakV (2024)",
+      "「HarmBench's behavior-only design less comprehensive on knowledge-style probes.」— SafetyBench / SALAD-bench"
+    ],
+    "self_limits": "「Authors note 510 behaviors a sample; English; copyright subset US-centric.」",
+    "external_views": [
+      "「HarmBench[Mazeika et al., 2024] is introduced as a standardized evaluation framework that tackles the lack of unified metrics in automated red-teaming for large language models. It builds a hierarchical taxonomy of harmful behaviors and supports large-scale comparisons across 18 red-teaming methods and 33 target models, offering a comprehensive benchmark for safety assessment.」— Survey 第 757-769 段"
+    ],
+    "synthesis": "综述指出 HarmBench 构建了有害行为的分层分类法，支持大规模比较。后续工作批评其仅测试 under-refusal 而非 over-refusal，未覆盖行动导向的危害，多模态红队测试不全面，且行为设计不够全面。作者自承数据集为样本，主要为英语，版权子集以美国为中心。",
+    "_meta": {
+      "row": 84,
+      "tag": null,
+      "cite": "HarmBench (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 3
+    }
+  },
+  "JailBreakV": {
+    "短名": "JailBreakV",
+    "lineage_critiques": [
+      "JailBreakV focuses on adversarial attack only; lacks broad safety category coverage. — MM-SafetyBench (2024)",
+      "static input attack ≠ agent action safety. — Agent-SafetyBench (2025)",
+      "multimodal subset is more standardized. — HarmBench (2024)"
+    ],
+    "self_limits": "Authors note attacks may not transfer to newer MLLMs; English; LLM-as-judge for harm classification.",
+    "external_views": [
+      "JailBreakV-28K [Luo et al., 2024] expands into a 28,000-sample multimodal jailbreak benchmark, combining 20,000 text-to-vision transfer attacks with 8,000 image-driven adversarial cases. This composition spans to applied to instructional user queries. — Survey"
+    ],
+    "synthesis": "综述指出 JailBreakV-28K 是一个包含 28,000 个样本的多模态越狱基准，结合了 20,000 个文本到视觉转移攻击和 8,000 个图像驱动对抗案例。后续工作批评其仅关注对抗攻击，缺乏广泛的安全类别覆盖，并且静态输入攻击不等于代理行动安全。作者自承攻击可能不适用于更新的 MLLM，且数据为英语，使用 LLM 作为危害分类的判断者。",
+    "_meta": {
+      "row": 85,
+      "tag": null,
+      "cite": "JailBreakV (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "LifeTox": {
+    "短名": "LifeTox",
+    "lineage_critiques": [
+      "single-axis (life advice) limits coverage. — SALAD-bench (2024)",
+      "Reddit ≠ chat conversation distribution. — ToxicChat-style critique",
+      "English-only Reddit doesn't address non-English implicit toxicity. — Wang Chinese 2024 critique"
+    ],
+    "self_limits": "Authors flag Reddit demographic skew (young Western males); English only; implicit-toxicity ground truth labor-intensive.",
+    "external_views": [
+      "LifeTox[Kim et al., 2024] is a dataset that uncovers implicit toxicity in life-advice scenarios, built from more than 87,000 real Reddit posts from LPT and ULPT communities. It focuses on long-form Q&A with rich context."
+    ],
+    "synthesis": "综述指出，LifeTox 从超过 87,000 个真实的 Reddit 帖子中揭示了生活建议场景中的隐性毒性。后续工作批评其仅关注生活建议这一单轴，限制了覆盖范围；Reddit 数据分布与实际聊天对话分布不同；只使用英语 Reddit 数据，未能解决非英语隐性毒性问题。作者承认数据偏向年轻西方男性，且只使用英语，真实标签劳动密集。",
+    "_meta": {
+      "row": 86,
+      "tag": null,
+      "cite": "LifeTox (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "MM-SafetyBench": {
+    "短名": "MM-SafetyBench",
+    "lineage_critiques": [
+      "MM-SafetyBench focuses on benign-looking text + harmful image; lacks adversarial attack diversity. — JailBreakV (2024)",
+      "question-only; not action-grounded. — Agent-SafetyBench (2025)",
+      "newer standardization may supersede. — HarmBench (2024)"
+    ],
+    "self_limits": "Authors note image generation for typeset-attack may not transfer to natural multimodal queries; English.",
+    "external_views": [],
+    "synthesis": "后续工作批评 MM-SafetyBench 缺乏对抗攻击多样性、未考虑行动基础，并可能被新标准取代。作者自承其图像生成方法可能不适用于自然多模态查询，且仅限英语环境。",
+    "_meta": {
+      "row": 87,
+      "tag": null,
+      "cite": "MM-SafetyBench (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 0
+    }
+  },
+  "SALAD-bench": {
+    "短名": "SALAD-bench",
+    "lineage_critiques": [
+      "hierarchy is novel but Level-3 categories overlap. — HarmBench (2024)",
+      "question-format only, not action-grounded. — Agent-SafetyBench (2025)",
+      "text-only. — MM-SafetyBench (2024)",
+      "doesn't include over-refusal. — XSTest-family"
+    ],
+    "self_limits": "Authors note hierarchy granularity choices are subjective; LLM-judge for response classification has biases.",
+    "external_views": [
+      "SALAD-Bench[Lietal.,2024a]isalarge-scale,hierarchi- cal safety benchmark designed to comprehensively evaluate largelanguagemodels,aswellasvariousattackanddefense methods.Itfeaturesathree-leveltaxonomyandaninnovative — Survey 第 818 段"
+    ],
+    "synthesis": "综述指出 SALAD-bench 是一个大规模、层次化的安全基准，具有三级分类法和创新的攻击与防御方法。后续工作批评其 Level-3 类别有重叠、仅限文本格式、未包含过度拒绝等问题。作者自承层级粒度选择主观且 LLM 判定响应分类存在偏差。",
+    "_meta": {
+      "row": 88,
+      "tag": null,
+      "cite": "SALAD-bench (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "SafetyBench": {
+    "短名": "SafetyBench",
+    "lineage_critiques": [
+      "7 categories miss hierarchical structure for sub-domain analysis. — SALAD-bench (2024)",
+      "MCQ doesn't test refusal/safe-completion behavior; no jailbreak attack evaluation. — HarmBench (2024)",
+      "doesn't include over-refusal probes. — XSTest (2024)",
+      "question-only, not action-grounded. — Agent-SafetyBench (2025)"
+    ],
+    "self_limits": "Authors note MCQ evaluation may not transfer to open-ended generation; some questions answer-leakable.",
+    "external_views": [
+      "SafetyBench[Zhang et al., 2024] is a bilingual multiple-choice benchmark containing 11,435 samples across seven safety dimensions, including offensiveness, bias, health, legality, ethics, and privacy. It integrates public data and ChatGPT-augmented data. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出 SafetyBench 是一个包含 11,435 个多选题的双语基准，涵盖七个安全维度。后续工作批评其类别缺少层次结构、未测试拒绝/安全完成行为、没有越狱攻击评估、不包括过度拒绝探针且仅基于问题形式。作者自承多选题评估可能不适用于开放式生成，部分问题答案可泄露。",
+    "_meta": {
+      "row": 89,
+      "tag": null,
+      "cite": "SafetyBench (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 3
+    }
+  },
+  "XSTest": {
+    "短名": "XSTest",
+    "lineage_critiques": [
+      "complementary; XSTest doesn't test under-refusal. — HarmBench (2024)",
+      "scale 200+250 limited. — SALAD-bench (2024)",
+      "text-only. — MM-SafetyBench (2024)",
+      "English-only over-refusal probes don't transfer. — Multilingual safety surveys"
+    ],
+    "self_limits": "Authors note 450 prompts a diagnostic sample; English; over-refusal types not exhaustive.",
+    "external_views": [
+      "XSTest[Ro¨ttgeretal.,2024]isdesignedtodetectwhether a model refuses benign requests when it should not. It aims torevealwhetheramodel’spursuitof”harmlessness”comes attheexpenseofits”helpfulness.” — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，XSTest 旨在检测模型是否在不应拒绝的情况下拒绝良性请求，并揭示追求“无害性”是否会损害“有用性”。后续工作批评其规模有限、仅限文本形式且不测试欠拒绝。作者自承数据集为诊断样本，仅限英语且过度拒绝类型不全面。",
+    "_meta": {
+      "row": 90,
+      "tag": null,
+      "cite": "XSTest (2024)",
+      "pillar": "safety",
+      "survey_passage_count": 2
+    }
+  },
+  "Agent-SafetyBench": {
+    "短名": "Agent-SafetyBench",
+    "lineage_critiques": [
+      "Multilingual safety surveys: English-only; Chinese agent safety unaddressed. — Workshop / preprint stage (2025)",
+      "XSTest-style critique: over-refusal in agent loops not measured separately. — Workshop / preprint stage (2025)"
+    ],
+    "self_limits": "Authors note 2k cases is a sample; risk categories may evolve; tool environment limited to ToolEmu sandbox.",
+    "external_views": [],
+    "synthesis": "后续工作批评 Agent-SafetyBench 仅限英文环境，未涵盖中文代理安全问题，并且未单独测量代理循环中的过度拒绝。作者自承其测试案例仅为样本，风险类别可能演变，工具环境限于 ToolEmu 沙盒。",
+    "_meta": {
+      "row": 91,
+      "tag": null,
+      "cite": "Agent-SafetyBench (2025)",
+      "pillar": "safety",
+      "survey_passage_count": 0
+    }
+  },
+  "SafeInfer": {
+    "短名": "SafeInfer",
+    "lineage_critiques": [
+      "HARMEVAL subset less standardized than HarmBench. — HarmBench (2024)",
+      "not action-grounded. — Agent-SafetyBench (2025)",
+      "'safe-aligned model' may be re-attacked through SafeInfer-aware adversaries. — Construct validity"
+    ],
+    "self_limits": "Authors note safety alignment may be brittle and that knowledge-editing techniques can break SafeInfer.",
+    "external_views": [
+      "SafeInfer: context adaptive decoding time safety alignment for large language models. Proceedings of the AAAI Conference on Artificial Intelligence, 39(26):27188–27196, April 2025. — Survey 第 1055 段"
+    ],
+    "synthesis": "综述指出，SafeInfer 是一种解码时的安全对齐方法。后续工作批评其 HARMEVAL 子集标准化程度不如 HarmBench，且不是基于行动的。此外，安全对齐模型可能被 SafeInfer-aware 对手重新攻击。作者自承，安全对齐可能脆弱，并且知识编辑技术可以破坏 SafeInfer。",
+    "_meta": {
+      "row": 92,
+      "tag": null,
+      "cite": "SafeInfer (2025)",
+      "pillar": "safety",
+      "survey_passage_count": 1
+    }
+  },
+  "SaFeRDialogues": {
+    "短名": "SaFeRDialogues",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 798 段：SaFeRDialogues[Ung et al., 2022] is a compact dataset of about 8,000 human-validated dialogues that model how conversational agents should recover gracefully after a safety failure, moving from an unsafe utterance to user feedback and then to a corrective response.」"
+    ],
+    "synthesis": "综述指出，SaFeRDialogues 是一个包含约 8,000 条人类验证对话的数据集，旨在模拟对话代理在安全失败后如何优雅地恢复。",
+    "_meta": {
+      "row": 96,
+      "tag": null,
+      "cite": "SaFeRDialogues (2022)",
+      "pillar": null,
+      "survey_passage_count": 3
+    }
+  },
+  "BAD": {
+    "短名": "BAD",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 695-697 段：Bot-Adversarial Dialogue (BAD) [?] collected 5,000 human–bot conversations showing that users often rely on subtle provocations to trigger models into generating hate speech, abusive language, or other offensive content.」"
+    ],
+    "synthesis": "综述指出，BAD 收集了 5,000 个人机对话，展示了用户经常通过微妙的挑衅来触发模型生成仇恨言论、辱骂语言或其他冒犯内容。",
+    "_meta": {
+      "row": 97,
+      "tag": null,
+      "cite": "BAD / Bot-Adversarial Dialogue (2021)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "HarmEval": {
+    "短名": "HarmEval",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "HarmEval [Banerjee et al., 2025] is built around the safety policies of major AI providers, organizing risks into 11 policy-violation categories that span safety, social–political harms, economic–privacy risks, and restricted content. — Survey"
+    ],
+    "synthesis": "综述指出，HarmEval 基于主要AI提供商的安全政策构建，将风险分为11个政策违规类别，涵盖安全、社会政治危害、经济隐私风险和限制内容。",
+    "_meta": {
+      "row": 98,
+      "tag": null,
+      "cite": "HarmEval (2025)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "HH-RLHF": {
+    "短名": "HH-RLHF",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述未提及该基准，且无后续工作批评。",
+    "_meta": {
+      "row": 99,
+      "tag": null,
+      "cite": "HH-RLHF / Anthropic H&H (2022)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "AdvBench": {
+    "短名": "AdvBench",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "Benchmarks such as AdvBench, Red-Eval, FFT, and LatentJailbreak employ role-playing, prompt injection, and cross-lingual translation to bypass safeguards. From a governance perspective, these benchmarks function as stress tests, exposing the fragility of LLM safety mechanisms. — Survey"
+    ],
+    "synthesis": "综述指出，AdvBench 等基准通过角色扮演、提示注入和跨语言翻译来绕过安全机制，从治理角度来看，这些基准作为压力测试，揭示了大语言模型安全机制的脆弱性。",
+    "_meta": {
+      "row": 100,
+      "tag": null,
+      "cite": "AdvBench (2023)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "Red-Eval": {
+    "短名": "Red-Eval",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "Benchmarks such as AdvBench, Red-Eval, FFT, and LatentJailbreak employ role-playing, prompt injection, and cross-lingual translation to bypass safeguards. From a governance perspective, these benchmarks function as stress tests, exposing the fragility of LLM safety mechanisms. — Survey"
+    ],
+    "synthesis": "综述指出，Red-Eval 等基准通过角色扮演、提示注入和跨语言翻译来绕过安全防护机制，从治理角度来看，这些基准作为压力测试，暴露了大语言模型安全机制的脆弱性。",
+    "_meta": {
+      "row": 101,
+      "tag": null,
+      "cite": "Red-Eval (2024)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "LatentJailbreak": {
+    "短名": "LatentJailbreak",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述未提及该基准，且无后续工作批评。",
+    "_meta": {
+      "row": 102,
+      "tag": null,
+      "cite": "LatentJailbreak (2024)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "CyberSec.Eval": {
+    "短名": "CyberSec.Eval",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "综述未提及该基准，且无后续工作批评。",
+    "_meta": {
+      "row": 103,
+      "tag": null,
+      "cite": "CyberSec.Eval (2024)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "FEVER": {
+    "短名": "FEVER",
+    "lineage_critiques": [
+      "FEVER tests retrieval-grounded fact-checking; doesn't address truthfulness when models confabulate. — TruthfulQA (2022)",
+      "FEVER fact-checking misses calibration / adversarial-pressure failures. — Sycophancy literature",
+      "single-task; doesn't span multiple trustworthy dimensions. — TrustLLM (2024)"
+    ],
+    "self_limits": "Authors note Wikipedia evidence boundary; NOT-ENOUGH-INFO label often debated.",
+    "external_views": [
+      "FEVER requires models to determine whether claims are supported, refuted, or unverifiable and to retrieve supporting evidence. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，FEVER 要求模型确定声明是否被支持、反驳或无法验证，并检索支持证据。后续工作批评 FEVER 仅测试基于检索的事实核查，未解决模型编造时的真实性问题；缺乏校准和对抗压力测试；且为单任务，不涵盖多个可信维度。作者自承其依赖维基百科证据边界，NOT-ENOUGH-INFO 标签常有争议。",
+    "_meta": {
+      "row": 106,
+      "tag": null,
+      "cite": "FEVER (2018)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 3
+    }
+  },
+  "HotpotQA": {
+    "短名": "HotpotQA",
+    "lineage_critiques": [
+      "HotpotQA is general QA; multi-hop reasoning ≠ trustworthy reasoning under uncertainty. — TrustLLM (2024)",
+      "text-only; doesn't probe visual/cross-modal hallucination. — HallusionBench (2024)",
+      "HotpotQA has shortcut artifacts; reasoning chains may be spurious. — FEVER (2018) follow-ups"
+    ],
+    "self_limits": "Authors note Wikipedia bias; multi-hop questions sometimes solvable via single hop.",
+    "external_views": [
+      "FEVER requires models to determine whether claims are supported, refuted, or unverifiable and to retrieve supporting evidence, while HotpotQA introduces multi-hop question answering with sentence-level supporting facts. Although HotpotQA is not an ethics benchmark per se, it is highly relevant to this pillar because it operationalizes a crucial aspect of trustworthy reasoning. — A_Comprehensive_Survey_of_AI_Ethics_Benchmarks"
+    ],
+    "synthesis": "综述指出，HotpotQA 虽然不是伦理基准，但通过多跳问答和句子级支持事实可操作化了可信推理的关键方面。后续工作批评其为一般 QA，多跳推理不等于不确定性下的可信推理；仅限文本，未探查视觉/跨模态幻觉；存在捷径伪迹，推理链可能虚假。作者自承存在维基百科偏见，部分多跳问题可通过单跳解决。",
+    "_meta": {
+      "row": 107,
+      "tag": null,
+      "cite": "HotpotQA (2018)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 3
+    }
+  },
+  "TruthfulQA": {
+    "短名": "TruthfulQA",
+    "lineage_critiques": [
+      "single-axis (truthfulness); doesn't cover trustworthiness holistically. — TrustLLM (2024)",
+      "TruthfulQA's MC format doesn't probe sycophantic responses under user pressure. — Sycophancy (Sharma 2025)",
+      "text-only; multimodal hallucination unaddressed. — HallusionBench (2024)"
+    ],
+    "self_limits": "Authors note 817 small; hand-curated common misconceptions; English.",
+    "external_views": [
+      "TruthfulQA [Lin et al., 2022] remains one of the most influential benchmarks because it does not merely ask whether a model can answer factual questions, but whether it can avoid reproducing common human misconceptions and"
+    ],
+    "synthesis": "综述指出，TruthfulQA不仅测试模型能否回答事实问题，还测试其是否避免常见的人类误解。后续工作批评其仅关注truthfulness，未全面覆盖trustworthiness其他子构念，且MC格式无法探测用户压力下的奉承响应，也未处理多模态幻觉。作者自承数据集规模较小，仅限英语。",
+    "_meta": {
+      "row": 108,
+      "tag": null,
+      "cite": "TruthfulQA (2022)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 2
+    }
+  },
+  "LegalBench": {
+    "短名": "LegalBench",
+    "lineage_critiques": [
+      "English/US legal system focused; doesn't transfer to civil-law jurisdictions. — LawBench (2024)",
+      "domain knowledge ≠ trustworthy reasoning under uncertainty. — TrustLLM",
+      "legal advice domain especially vulnerable to confident hallucination. — Sycophancy concern"
+    ],
+    "self_limits": "Authors note US-common-law focus; English; tasks contributed by volunteers, quality varies.",
+    "external_views": [
+      "Benchmarking legal reasoning in large language models. 2025. arXiv preprint arXiv:2308.11462, 2023. — Survey"
+    ],
+    "synthesis": "综述指出 LegalBench 用于评估大型语言模型的法律推理能力。后续工作批评其仅关注美国法律体系，不适用于民法法系，并且领域知识并不等同于不确定条件下的可信推理。此外，法律建议领域特别容易受到自信幻觉的影响。作者自承局限在于专注于美国普通法、英语环境，任务质量因志愿者贡献而有所差异。",
+    "_meta": {
+      "row": 109,
+      "tag": null,
+      "cite": "LegalBench (2023)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 1
+    }
+  },
+  "HallusionBench": {
+    "短名": "HallusionBench",
+    "lineage_critiques": [
+      "「TrustLLM-MM extensions: HallusionBench focuses on visual; LLM-judge for entanglement diagnosis has noise.」— TrustLLM-MM",
+      "「PatentEval / domain trustworthy: domain-specific hallucination not covered.」— PatentEval",
+      "「Recent surveys: 1k size limits subgroup analysis.」— Recent surveys"
+    ],
+    "self_limits": "「Authors note image generation may transfer poorly; LLM judge variance.」",
+    "external_views": [
+      "「Hallusionbench: An advanced diagnostic suite for entangled language hallucination and visual illusion in large vision-language models. arXiv preprint arXiv:2310.14566, 2023.」— Survey"
+    ],
+    "synthesis": "综述指出 HallusionBench 是一个用于评估多模态模型中语言幻觉和视觉错觉的诊断套件。后续工作批评其主要关注视觉方面，LLM 判定存在噪声，未覆盖特定领域的幻觉，并且数据集规模限制了子组分析。作者自承图像生成可能表现不佳，LLM 判定存在方差。",
+    "_meta": {
+      "row": 111,
+      "tag": null,
+      "cite": "HallusionBench (2024)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 1
+    }
+  },
+  "LawBench": {
+    "短名": "LawBench",
+    "lineage_critiques": [
+      "LegalBench (2023) cross-comparison: LawBench Chinese-focused; cross-jurisdiction transfer untested.",
+      "TrustLLM: knowledge ≠ trustworthiness.",
+      "PatentEval / domain-specific: doesn't cover patent law specifics."
+    ],
+    "self_limits": "Authors note Chinese-only; some tasks have answer-leakage from training data.",
+    "external_views": [],
+    "synthesis": "后续工作批评 LawBench 仅关注中文且未测试跨司法管辖区的迁移性，知识不等于可信度，且未涵盖专利法。作者自承局限在于仅限中文，部分任务存在训练数据泄露答案的问题。",
+    "_meta": {
+      "row": 112,
+      "tag": null,
+      "cite": "LawBench (2024)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 0
+    }
+  },
+  "PatentEval": {
+    "短名": "PatentEval",
+    "lineage_critiques": [
+      "「error taxonomy useful but doesn't cover full trustworthy spectrum.」— Sycophancy / TrustLLM"
+    ],
+    "self_limits": "「Authors note specialized domain; expert annotation required; English.」",
+    "external_views": [
+      "「PatentEval[Shen and others, 2024] furthers show how trustworthiness and controllability can be examined in domains where factual precision, normative interpretation, and ownership risk intersect.」"
+    ],
+    "synthesis": "综述指出，PatentEval展示了在事实精确、规范解释和所有权风险交织的领域中如何检查可信度和可控性。后续工作批评其错误类型学有用但未覆盖完整的可信谱系。作者自承该基准专注于特定领域，需要专家标注且仅限英文。",
+    "_meta": {
+      "row": 113,
+      "tag": null,
+      "cite": "PatentEval (2024)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 2
+    }
+  },
+  "TrustLLM": {
+    "短名": "TrustLLM",
+    "lineage_critiques": [
+      "「TrustLLM aggregates many tasks but doesn't deep-dive sycophancy.」— Sycophancy (2025)",
+      "「text-only; multimodal trustworthiness gap.」— HallusionBench (2024)",
+      "「8 trustworthiness dimensions overlap and lack clear separability.」— Construct validity"
+    ],
+    "self_limits": "「Authors note breadth-vs-depth tradeoff; some subtasks reuse existing benchmarks; English.」",
+    "external_views": [
+      "「TrustLLM [Huang et al., 2024b] is especially useful here as a benchmark suite and organizing framework rather than a single narrow dataset: it formulates trustworthiness principles across multiple dimensions and evaluates mainstream LLMs.」— Survey 第 693 段",
+      "「This trajectory continued with TrustLLM [Huang et al., 2024b], which expanded the quantity and diversity of attack vectors to provide a holistic view of model robustness.」— Survey 第 1003 段"
+    ],
+    "synthesis": "综述指出，TrustLLM 作为基准套件和组织框架比单一数据集更适合多维画像。后续工作批评其任务聚合但未深入探讨奉承行为、仅限文本且缺乏多模态信任度评估、信任维度之间存在重叠且缺乏明确的分离。作者自承在广度与深度之间的权衡，部分子任务复用现有基准，且主要集中在英语环境。",
+    "_meta": {
+      "row": 114,
+      "tag": null,
+      "cite": "TrustLLM (2024)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 3
+    }
+  },
+  "Sycophancy-Sharma": {
+    "短名": "Sycophancy-Sharma",
+    "lineage_critiques": [
+      "TrustLLM (2024) misses sycophancy as separate axis. — TrustLLM",
+      "Recent: sycophancy benchmark needs adversarial multi-turn extension. — Recent",
+      "Construct validity: 'sycophancy' construct narrow vs broader 'epistemic capitulation'. — Construct validity"
+    ],
+    "self_limits": "Authors note 5 LLMs evaluated; English; preference-sycophancy may correlate with helpfulness.",
+    "external_views": [],
+    "synthesis": "后续工作批评该基准未涵盖更广泛的epistemic capitulation，需要多轮对抗扩展。作者自承仅评估了五种英语环境下的LLM，且偏好型sycophancy可能与帮助性相关。",
+    "_meta": {
+      "row": 115,
+      "tag": null,
+      "cite": "Sycophancy-Sharma (2025)",
+      "pillar": "trustworthy",
+      "survey_passage_count": 0
+    }
+  },
+  "HaluEval": {
+    "短名": "HaluEval",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "HaluEval [Li and others, 2023] provides generated and human-annotated hallucinated samples for diagnosing whether models can recognize hallucinations in text. — Survey"
+    ],
+    "synthesis": "综述指出，HaluEval提供了生成和人工标注的幻觉样本，用于诊断模型是否能识别文本中的幻觉内容。",
+    "_meta": {
+      "row": 118,
+      "tag": null,
+      "cite": "HaluEval (2023)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "FActScore": {
+    "短名": "FActScore",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 662-664 段：FActScore [Min et al., 2023] extends this direction to long-form generation by decomposing outputs into atomic facts and measuring the proportions supported by reliable knowledge sources, thereby offering a finer-grained evaluation.」"
+    ],
+    "synthesis": "综述指出，FActScore [Min et al., 2023] 将长文本拆成可验证原子事实并计算支持比例，从而提供更细粒度的评估。",
+    "_meta": {
+      "row": 119,
+      "tag": null,
+      "cite": "FActScore (2023)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "FreshQA": {
+    "短名": "FreshQA",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "FreshQA [Vu and others, 2024] extends trustworthiness into the temporal dimension by testing whether models can reason over rapidly changing world knowledge and correctly handle false-premise questions. These benchmarks matter because"
+    ],
+    "synthesis": "综述指出，FreshQA 将可信性扩展到时间维度，测试模型对快速变化事实和错误前提问题的处理能力。这些基准测试很重要。",
+    "_meta": {
+      "row": 120,
+      "tag": null,
+      "cite": "FreshQA / FreshLLMs (2024)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "SycophancyBench": {
+    "短名": "SycophancyBench",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 37 段：yet lack a cohesive map to navigate them.」"
+    ],
+    "synthesis": "综述指出，尽管 SycophancyBench 用于检查谄媚行为，但目前缺乏一个统一的地图来导航这些基准。",
+    "_meta": {
+      "row": 121,
+      "tag": null,
+      "cite": "SycophancyBench / Model-Written Evaluations (2022)",
+      "pillar": null,
+      "survey_passage_count": 1
+    }
+  },
+  "DecodingTrust": {
+    "短名": "DecodingTrust",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 941 段：Notably, DecodingTrust [Wang et al., 2023] introduced a rigorous privacy vertical utilizing the Enron Email dataset to evaluate Personally Identifiable Information (PII) leakage under adversarial system prompts.」"
+    ],
+    "synthesis": "综述指出，DecodingTrust 引入了严格的隐私评估，利用 Enron Email 数据集评估对抗性系统提示下的个人身份信息（PII）泄露。",
+    "_meta": {
+      "row": 122,
+      "tag": null,
+      "cite": "DecodingTrust (2023)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "Converse": {
+    "短名": "Converse",
+    "lineage_critiques": [
+      "PrivacyLens: Converse domains narrower (3 verticals); PL uses 10+ toolkits. — PrivacyLens",
+      "PrivaCI-Bench: Converse single-turn-ish; PCI offers more law-grounded MCQ. — PrivaCI-Bench"
+    ],
+    "self_limits": "Authors note 3-domain scope; English; templates synthetic.",
+    "external_views": [],
+    "synthesis": "后续工作批评 Converse 的领域较窄，仅涵盖三个垂直领域（PrivacyLens），且为单轮对话形式，缺乏法律基础的多选题（PrivaCI-Bench）。作者自承其局限性在于仅覆盖三个领域、英语环境及合成模板。",
+    "_meta": {
+      "row": 124,
+      "tag": null,
+      "cite": "Converse (2024)",
+      "pillar": "privacy",
+      "survey_passage_count": 0
+    }
+  },
+  "EAI-Bench": {
+    "短名": "EAI-Bench",
+    "lineage_critiques": [
+      "仅 ~tier_1 公开 10 条 ~ 全集小；嵌入式 AI 场景偏窄。— Cross",
+      "未连接到现实部署伤害（家用机器人 / 监控摄像头）。"
+    ],
+    "self_limits": "Authors note small scale; embodied AI specific; English.",
+    "external_views": [],
+    "synthesis": "综述指出，EAI-Bench 数据集规模较小且场景单一。后续工作批评其未连接到现实部署中的具体伤害。作者自承局限在于数据集规模小、特定于嵌入式 AI 且仅限英语环境。",
+    "_meta": {
+      "row": 125,
+      "tag": null,
+      "cite": "EAI-Bench (2024)",
+      "pillar": "privacy",
+      "survey_passage_count": 0
+    }
+  },
+  "GoldCoin": {
+    "短名": "GoldCoin",
+    "lineage_critiques": [
+      "PrivaCI-Bench: HIPAA-only; CI framework broader. — PrivaCI-Bench",
+      "Construct: legal applicability ≠ ethical privacy; jurisdiction-locked. — Construct"
+    ],
+    "self_limits": "Authors note US-only; HIPAA narrow scope; generated cases may have hallucination.",
+    "external_views": [],
+    "synthesis": "后续工作批评 GoldCoin 仅基于 HIPAA 法律框架，未涵盖更广泛的隐私构念如 Contextual Integrity 框架。作者自承其局限性在于仅限于美国法域和 HIPAA 狭窄范围，并且生成案例可能存在幻觉。",
+    "_meta": {
+      "row": 126,
+      "tag": null,
+      "cite": "GoldCoin (2024)",
+      "pillar": "privacy",
+      "survey_passage_count": 0
+    }
+  },
+  "PrivacyLens": {
+    "短名": "PrivacyLens",
+    "lineage_critiques": [
+      "Cross-paper: PrivaCI-Bench (2025) is MCQ; PrivacyLens is action-grounded. — PrivaCI-Bench",
+      "Scale 493 vignettes limits subgroup analysis. — PrivaCI-Bench"
+    ],
+    "self_limits": "Authors note toolkits limited to ~10 LLM tools; English; vignettes synthetic.",
+    "external_views": [],
+    "synthesis": "后续工作批评 PrivacyLens 的场景数量限制了子组分析，且其工具包仅限于约 10 个 LLM 工具，且为英语和合成的 vingette。作者自承这些局限。",
+    "_meta": {
+      "row": 127,
+      "tag": null,
+      "cite": "PrivacyLens (2024)",
+      "pillar": "privacy",
+      "survey_passage_count": 0
+    }
+  },
+  "wa_format / WebArena-Privacy": {
+    "短名": "wa_format",
+    "lineage_critiques": [
+      "PrivacyLens: WebArena format more deployment-realistic but tasks narrow. — PrivacyLens",
+      "Multi-turn agent: single-task GitLab focus limits coverage. — Multi-turn agent"
+    ],
+    "self_limits": "Authors note WebArena-locked; English; task templates synthetic.",
+    "external_views": [],
+    "synthesis": "后续工作批评WebArena格式的任务范围狭窄，仅限于GitLab场景。作者自承局限在于任务模板是合成的，且仅限于英文环境。",
+    "_meta": {
+      "row": 128,
+      "tag": null,
+      "cite": "WebArena-Privacy (2024)",
+      "pillar": "privacy",
+      "survey_passage_count": 0
+    }
+  },
+  "PrivaCI-Bench": {
+    "短名": "PrivaCI-Bench",
+    "lineage_critiques": [
+      "MCQ-only; doesn't test agent action-space privacy. — PrivacyLens (2024)",
+      "legal grounding broader; PrivaCI-Bench narrower scope. — GoldCoin (2024)",
+      "CI is theoretical framework; operationalization to LLM eval lossy. — Construct validity"
+    ],
+    "self_limits": "Authors note theoretical-CI to benchmark-eval gap; English; legal coverage US-centric.",
+    "external_views": [
+      "PrivaCI-Bench [Li et al., 2025] can be summarized as a benchmark that reframes LLM privacy evaluation around contextual integrity rather than narrow PII detection. It introduces two tasks—CI-violation detection and cross-jurisdiction legal-compliance assessing data privacy in large language models. — Survey 第 1034 段"
+    ],
+    "synthesis": "综述指出，PrivaCI-Bench 重构了隐私评估，从窄PII检测转向contextual integrity。后续工作批评其仅使用MCQ题型、法律基础较窄且理论框架到基准评估存在差距。作者自承局限在于理论与实际评估的差距、英语环境及美国中心的法律覆盖。",
+    "_meta": {
+      "row": 129,
+      "tag": null,
+      "cite": "PrivaCI-Bench (2025)",
+      "pillar": "privacy",
+      "survey_passage_count": 3
+    }
+  },
+  "Carlini Extraction": {
+    "短名": "Carlini Extraction",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "",
+    "_meta": {
+      "row": 133,
+      "tag": null,
+      "cite": "Carlini Extraction / Training Data Extraction (2021)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "DecodingTrust-Privacy": {
+    "短名": "DecodingTrust-Privacy",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [],
+    "synthesis": "",
+    "_meta": {
+      "row": 134,
+      "tag": null,
+      "cite": "DecodingTrust-Privacy (2023)",
+      "pillar": null,
+      "survey_passage_count": 0
+    }
+  },
+  "ProPILE": {
+    "短名": "ProPILE",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 1022-1024 段：To ensure the safe and responsible development of large language models, ethical evaluation must be integrated throughout the entire lifecycle, with particular emphasis on the pre-deployment phase. Early assessment should prioritize toxic content detection.」"
+    ],
+    "synthesis": "综述指出，为了确保大型语言模型的安全和负责任的发展，伦理评估必须贯穿整个生命周期，特别是在部署前阶段。早期评估应优先考虑有毒内容检测。",
+    "_meta": {
+      "row": 135,
+      "tag": null,
+      "cite": "ProPILE (2023)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "ConfAIde": {
+    "短名": "ConfAIde",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 1008 段：ConfAIde [Mireshghallah et al., 2023] exemplifies this by assessing contextual privacy through multi-turn interactions, testing the model’s “theory of mind” and its ability to maintain confidentiality against social engineering.」"
+    ],
+    "synthesis": "综述指出，ConfAIde 通过多轮互动评估上下文隐私，测试模型的“心智理论”及其在社会工程攻击下的保密能力。",
+    "_meta": {
+      "row": 136,
+      "tag": null,
+      "cite": "ConfAIde (2023)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  },
+  "LLM-PBE": {
+    "短名": "LLM-PBE",
+    "lineage_critiques": [],
+    "self_limits": "",
+    "external_views": [
+      "「Survey 第 1029-1031 段：LLM-PBE [Li et al., 2024b] employ semantic matching and reasoning scores to evaluate information flow control. Early benchmarks relied on static, single-turn sentence completion (cloze tests).」"
+    ],
+    "synthesis": "综述指出，LLM-PBE [Li et al., 2024b] 使用语义匹配和推理分数来评估信息流控制。早期基准依赖于静态的单轮句子补全（完形填空测试）。",
+    "_meta": {
+      "row": 137,
+      "tag": null,
+      "cite": "LLM-PBE (2024)",
+      "pillar": null,
+      "survey_passage_count": 2
+    }
+  }
+}

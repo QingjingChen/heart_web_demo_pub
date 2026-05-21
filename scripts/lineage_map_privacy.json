@@ -1,0 +1,98 @@
+{
+  "_doc": "Privacy benchmark lineage map. 6 entries (1 with full PDF, 5 hand-curated from data files + author knowledge).",
+
+  "11113": {
+    "short_name": "PrivaCI-Bench",
+    "year": 2025,
+    "family": "contextual-integrity-legal",
+    "is_benchmark": true,
+    "has_pdf": true,
+    "note": "Li et al. 2025. Evaluates privacy with Contextual Integrity (Nissenbaum) + legal compliance frameworks (HIPAA/GDPR). MCQ + scenario-based questions on appropriate information flow.",
+    "critiques_received": [
+      "PrivacyLens (2024): MCQ-only; doesn't test agent action-space privacy.",
+      "GoldCoin (2024): legal grounding broader; PrivaCI-Bench narrower scope.",
+      "Construct validity: CI is theoretical framework; operationalization to LLM eval lossy."
+    ],
+    "self_acknowledged_limits": "Authors note theoretical-CI to benchmark-eval gap; English; legal coverage US-centric."
+  },
+
+  "PRIV_PRIVACYLENS": {
+    "short_name": "PrivacyLens",
+    "year": 2024,
+    "family": "agent-CI-action",
+    "is_benchmark": true,
+    "has_pdf": false,
+    "dataset_reference": "PrivacyLens/main_data.json",
+    "note": "Shao et al. 2024 (NeurIPS). PrivacyLens uses Contextual Integrity 5-tuple (data_type / data_subject / data_sender / data_recipient / transmission_principle) + agent toolkit trajectories (FacebookManager / NotionManager etc.) to test agent privacy in realistic action environments. ~493 vignettes.",
+    "data_structure": "Each item: name + seed{5-tuple} + vignette{story+concrete} + trajectory{user_name/email/instruction/toolkits/...}.",
+    "critiques_received": [
+      "Cross-paper: PrivaCI-Bench (2025) is MCQ; PrivacyLens is action-grounded.",
+      "Scale 493 vignettes limits subgroup analysis."
+    ],
+    "self_acknowledged_limits": "Authors note toolkits limited to ~10 LLM tools; English; vignettes synthetic."
+  },
+
+  "PRIV_GOLDCOIN": {
+    "short_name": "GoldCoin",
+    "year": 2024,
+    "family": "HIPAA-grounded-eval",
+    "is_benchmark": true,
+    "has_pdf": false,
+    "dataset_reference": "GoldCoin/",
+    "note": "Fan et al. 2024 (EMNLP). GoldCoin grounds LLMs in privacy laws, especially HIPAA Privacy Rule. Two subtasks: HIPAA Applicability (binary/multi-class for whether case applies) + HIPAA Compliance (binary for compliant or not). Uses real legal cases + generated cases.",
+    "data_structure": "CSV columns: refer_regulation (HIPAA section ID like 164.502(a)) / generate_HIPAA_type (Forbid/Allow/etc) / generate_background (case narrative) / refer_id / refer_regulation_type. ~3K real cases + ~10K generated.",
+    "critiques_received": [
+      "PrivaCI-Bench: HIPAA-only; CI framework broader.",
+      "Construct: legal applicability ≠ ethical privacy; jurisdiction-locked."
+    ],
+    "self_acknowledged_limits": "Authors note US-only; HIPAA narrow scope; generated cases may have hallucination."
+  },
+
+  "PRIV_CONVERSE": {
+    "short_name": "Converse",
+    "year": 2024,
+    "family": "CI-driven-multi-domain-dialogue",
+    "is_benchmark": true,
+    "has_pdf": false,
+    "dataset_reference": "Converse/",
+    "note": "Bagdasaryan et al. or related — CI-driven multi-domain conversational privacy: insurance / travel / real_estate use cases. Includes inter-rater reliability calculation (IRR_results_summary) and template_creation_script.py. Tests whether LLM agent honors CI norms across domains.",
+    "data_structure": "Three usecase folders (insurance, travel, real_estate) with CI templates + ratings; inter-rater agreement reported.",
+    "critiques_received": [
+      "PrivacyLens: Converse domains narrower (3 verticals); PL uses 10+ toolkits.",
+      "PrivaCI-Bench: Converse single-turn-ish; PCI offers more law-grounded MCQ."
+    ],
+    "self_acknowledged_limits": "Authors note 3-domain scope; English; templates synthetic."
+  },
+
+  "PRIV_EAI": {
+    "short_name": "EAI-Bench",
+    "year": 2024,
+    "family": "embodied-AI-privacy-tiers",
+    "is_benchmark": true,
+    "has_pdf": false,
+    "dataset_reference": "eai_bench/",
+    "note": "Embodied AI privacy benchmark. Tier-based privacy assessment: tier_1 (original information → physical objects), tier_2/3a/4 escalating complexity. Tests whether embodied AI agents recognize physical-object representations of private information (e.g., social security card displaying SSN).",
+    "data_structure": "tier_1.json (~10 items): {original information, physical objects, combinations}. Tiered escalation tests physical-symbolic privacy translation.",
+    "critiques_received": [
+      "Cross: 仅 ~tier_1 公开 10 条 ~ 全集小；嵌入式 AI 场景偏窄。",
+      "未连接到现实部署伤害（家用机器人 / 监控摄像头）。"
+    ],
+    "self_acknowledged_limits": "Authors note small scale; embodied AI specific; English."
+  },
+
+  "PRIV_WAFORMAT": {
+    "short_name": "wa_format / WebArena-Privacy",
+    "year": 2024,
+    "family": "agent-webarena-privacy",
+    "is_benchmark": true,
+    "has_pdf": false,
+    "dataset_reference": "wa_format/",
+    "note": "WebArena-style privacy benchmark. Tests web agent's privacy decisions in realistic GitLab merge-request comment scenarios. The 'intent_data' shows WhatsApp chat referencing private gossip (e.g., colleague's divorce); agent must avoid leaking it in public merge-request comments.",
+    "data_structure": "JSON: {UID, sites:[gitlab/...], task_id, require_login, start_url, intent_template, intent_type:'gitlab_create_comment', intent_data:WhatsApp chat with private content}.",
+    "critiques_received": [
+      "PrivacyLens: WebArena format more deployment-realistic but tasks narrow.",
+      "Multi-turn agent: single-task GitLab focus limits coverage."
+    ],
+    "self_acknowledged_limits": "Authors note WebArena-locked; English; task templates synthetic."
+  }
+}

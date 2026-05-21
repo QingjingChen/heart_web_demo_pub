@@ -1,32 +1,40 @@
-# HEART Benchmark Auditor — Web Demo
+# HEART Benchmark Auditor Demo
 
-A single-file HTML user interface for the **HEART** (Human-centric Ethical
-Assessment and Revision Toolkit) benchmark auditor: upload a benchmark or
-dataset, score it on the 14-rubric scheme, see which tool families repair the
-weak rubrics, and inspect generated adaptation examples per label.
+A compact public package for the **HEART** benchmark auditor demo. It includes
+the static web UI, the local FastAPI backend, the final workbook deliverable,
+and the final workbook-maintenance scripts retained from the working folder.
 
-> **Status.** This repository ships the **frontend only**. All buttons in the
-> UI POST to a local backend at `http://127.0.0.1:8765` (see the `apiBase()`
-> function near the bottom of `index.html`). Without that backend running, the
-> page renders but the audit / adaptation actions will return errors.
+## Contents
 
-## Quick look
+| Path | Purpose |
+|------|---------|
+| `index.html` | Static browser UI; no build step and no CDN dependency. |
+| `heart_backend.py` | Local API server for scoring, tool matching, and adaptation examples. |
+| `workbooks/HEART_Excel_含原始与修订.xlsx` | Final, most complete workbook deliverable with original and revised sheets. |
+| `workbooks/科技伦理toolkit.xlsx` | Backend-compatible toolkit workbook used by the API. |
+| `scripts/` | Final lineage/per-rubric workbook scripts and their curated JSON support files. |
+| `docs/API.md` | Local API examples. |
 
-Just open `index.html` in any modern browser — no build step, no dependencies,
-no CDN calls. You will see the full UI; live audits require the companion
-backend (not included in this repo).
+Old scoring scripts, backups, logs, local virtualenvs, access keys, raw model
+outputs, paper zip files, and temporary LaTeX/package artifacts are intentionally
+left out.
 
-## Live preview via GitHub Pages
+## Run Locally
 
-Because the file is named `index.html` at the repo root, enabling GitHub Pages
-on the `main` branch will publish the UI at
-`https://<user>.github.io/<repo>/`. Note the same backend caveat applies: the
-hosted page can render but cannot complete an audit unless the visitor is
-running the backend locally.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn heart_backend:app --host 127.0.0.1 --port 8765
+```
+
+Then open `http://127.0.0.1:8765/`.
+
+You can also open `index.html` directly. In that mode, the page sends API calls
+to `http://127.0.0.1:8765`, so the backend still needs to be running for live
+audits.
 
 ## Endpoints the UI expects
-
-If you build your own backend, the page calls:
 
 | Method | Path | Purpose |
 |--------|------|---------|
@@ -34,20 +42,25 @@ If you build your own backend, the page calls:
 | `POST` | `/api/fusion-example` | Run the 14-rubric audit on an uploaded benchmark / dataset and return matched tool families |
 | `POST` | `/api/adapt-sample`   | Generate domain-specific adaptation examples for a selected sample and selected tool patterns |
 
-Payload shapes can be read directly from `index.html` (the JSON bodies are
-constructed inline in the `runAudit`, `testApiKey`, and
-`generateSelectedAdaptations` functions).
+More examples are in [`docs/API.md`](docs/API.md).
 
-## What this demo is *not*
+## GitHub Pages
 
-- It is **not** a self-contained tool — it has no offline scoring logic; all
-  rubric scores, tool recommendations, and adaptation examples come from the
-  backend.
-- It is **not** an evaluation framework — the underlying methodology is
-  described in the accompanying paper (under review).
-- It does **not** transmit API keys to any third party. The key entered in the
-  UI is sent only to the configured local backend (`127.0.0.1:8765` when
-  opened via `file://`, or same-origin when served from a domain).
+Because the UI is `index.html` at the repository root, GitHub Pages can render
+the demo shell directly. Interactive audit actions still require a local backend
+at `http://127.0.0.1:8765`.
+
+For a different API base, set it in the browser console:
+
+```js
+localStorage.setItem("heartApiBase", "http://127.0.0.1:8765")
+```
+
+## Secrets
+
+Do not commit API keys. The backend accepts a key only in the local request body
+and does not write it to disk. The working-folder `AccessKey.csv` and local
+DashScope key files are deliberately excluded.
 
 ## License
 

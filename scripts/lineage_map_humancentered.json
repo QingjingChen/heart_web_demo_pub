@@ -1,0 +1,217 @@
+{
+  "_doc": "Human-centered (心理/共情/道德/价值观/医疗对齐) lineage map.",
+
+  "11292": {
+    "short_name": "MoralMachine",
+    "year": 2018,
+    "family": "moral-survey-experiment",
+    "is_benchmark": true,
+    "note": "Awad et al., Nature 2018. Online experimental platform collecting 40M decisions from 233 countries on autonomous-vehicle trolley dilemmas. Identified universal vs cultural moral preferences.",
+    "critiques_received": [
+      "MoReBench (2025): outcome-only forced choice; ignores procedural reasoning.",
+      "MFT replication (2023): 9-attribute design doesn't map cleanly onto established moral foundations.",
+      "Moral stories (2021): forced binary trolley choices oversimplify situated reasoning."
+    ],
+    "self_acknowledged_limits": "Self-selected online participants; trolley-style scenarios highly stylized; cross-cultural framing limited."
+  },
+  "11092": {
+    "short_name": "MoralStories",
+    "year": 2021,
+    "family": "narrative-norm-reasoning",
+    "is_benchmark": true,
+    "note": "12k structured narratives: norm + situation + intention + moral action + immoral action + consequence. Tests whether models understand norm-violating reasoning chains.",
+    "critiques_received": [
+      "MoReBench (2025): outcome labels embed annotator bias; pluralism not modeled.",
+      "CMoralEval (2024): English/Western norms only.",
+      "Educator-LLM (2025): norms drawn from US Reddit; not transferable to professional contexts."
+    ],
+    "self_acknowledged_limits": "Authors flag US-centric norms; binary moral/immoral labels may suppress disagreement."
+  },
+  "10776": {
+    "short_name": "ETHICS",
+    "year": 2023,
+    "family": "moral-classification",
+    "is_benchmark": true,
+    "note": "Hendrycks et al. 130k+ examples covering Justice, Deontology, Virtue, Utilitarianism, Commonsense moral judgments — five sub-benchmarks. Crowd-annotated.",
+    "critiques_received": [
+      "MoReBench (2025): outcome-only; doesn't test moral reasoning chains.",
+      "Scherrer 2023 (MoralChoice): low-ambiguity items only; doesn't probe disagreement.",
+      "CMoralEval (2024) / MFQ-2 (2023): five frameworks chosen by authors; some categories thin (e.g., Virtue 2.5k).",
+      "Educator-LLM (2025): no professional context; abstracts away role-bound duties."
+    ],
+    "self_acknowledged_limits": "Authors flag MTurk crowdsourcing variance; English; some sub-benchmarks (Virtue) limited to single-word judgments."
+  },
+  "12942": {
+    "short_name": "SCRUPLES",
+    "year": 2021,
+    "family": "real-life-anecdote-judgment",
+    "is_benchmark": true,
+    "note": "32k r/AmItheAsshole anecdotes with community verdicts (YTA/NTA/ESH/NAH); tests social/moral judgment in everyday situations.",
+    "critiques_received": [
+      "MoReBench (2025): outcome-only; doesn't model procedural reasoning.",
+      "CMoralEval (2024): English-only Reddit demographic skew.",
+      "VITAL/HumaniBench: lacks healthcare/professional alignment context."
+    ],
+    "self_acknowledged_limits": "Authors flag Reddit demographic skew (young Western); community verdicts noisy; binary labels suppress moral pluralism."
+  },
+  "12918": {
+    "short_name": "MFQ-2",
+    "year": 2023,
+    "family": "psychometric-validation",
+    "is_benchmark": false,
+    "note": "Zakharin & Bates 2023: validation/replication of Moral Foundations Questionnaire 2 (Care/Equality/Proportionality/Loyalty/Authority/Purity). Psychology study, not benchmark — but provides theoretical scaffold for many later HC benchmarks.",
+    "critiques_received": [
+      "Construct validity in LLM evals: MFQ designed for human surveys; transferring to LLMs (e.g., MoralChoice using MFQ axes) is non-trivial."
+    ],
+    "self_acknowledged_limits": "Authors note WEIRD sample limitation; not a model-evaluation tool."
+  },
+  "12853": {
+    "short_name": "MoralChoice",
+    "year": 2023,
+    "family": "moral-survey",
+    "is_benchmark": true,
+    "is_duplicate_of_fairness": true,
+    "note": "Scherrer et al. 2023. 1767 moral scenarios (high+low ambiguity); MoralChoice (also appears in Fairness section). Inclusion under HC reflects 'moral belief evaluation' as human-centered.",
+    "critiques_received": [
+      "MoReBench (2025): outcome-only choice; no procedural reasoning chain.",
+      "CMoralEval (2024): English; Western moral intuitions.",
+      "MFT-2 (2023): MFQ axes used externally without psychometric calibration."
+    ],
+    "self_acknowledged_limits": "Authors flag English; rule labels Western canonical; high-ambiguity items lack ground-truth."
+  },
+  "12971": {
+    "short_name": "EmotionBench",
+    "year": 2024,
+    "family": "psychology-emotion-elicitation",
+    "is_benchmark": true,
+    "note": "Huang et al. 2024. Tests LLM's emotional response across 8 negative emotions × 36 trigger scenarios using Positive and Negative Affect Schedule (PANAS) self-report instrument; 5 LLMs evaluated.",
+    "critiques_received": [
+      "HeartBench (2025): emotional response ≠ empathic action; lacks anthropomorphic intelligence dimensions.",
+      "SMILE (2024): single-turn elicitation; no multi-turn supportive conversation.",
+      "Cross-cultural emotion psychology: PANAS is Western-validated; non-Western emotion lexicons absent."
+    ],
+    "self_acknowledged_limits": "Authors note PANAS Western validation; LLM 'emotion' is anthropomorphic projection; multi-turn dynamics not tested."
+  },
+  "10818": {
+    "short_name": "CPsyExam",
+    "year": 2024,
+    "family": "Chinese-psychology-exam",
+    "is_benchmark": true,
+    "note": "Chinese psychology examinations dataset for evaluating psychological knowledge in LLMs; 22k+ items from licensed Chinese psychology certification exams.",
+    "critiques_received": [
+      "HeartBench (2025): exam knowledge ≠ empathic interaction; CPsyExam tests knowledge recall not crisis response.",
+      "SMILE (2024): single-turn QA; lacks supportive dialogue.",
+      "VITAL (2025): exam format doesn't capture clinical decision-making nuance."
+    ],
+    "self_acknowledged_limits": "Authors note exam-knowledge limitation; doesn't test clinical empathy or crisis intervention."
+  },
+  "12981": {
+    "short_name": "SMILE",
+    "year": 2024,
+    "family": "mental-health-dialogue",
+    "is_benchmark": true,
+    "note": "Qiu et al. SMILE: ChatGPT-expanded single-turn → multi-turn Chinese mental health support dialogues. ~ 20k multi-turn dialogues for evaluation/finetuning.",
+    "critiques_received": [
+      "HeartBench (2025): focuses on supportive language not on professional boundary / referral.",
+      "VITAL (2025): not specifically aligned with clinical guidelines.",
+      "Educator-LLM (2025): role-specific (mental health); not generalizable."
+    ],
+    "self_acknowledged_limits": "Authors note ChatGPT-generated dialogues may amplify model bias; Chinese only; no expert-validated clinical pathways."
+  },
+  "12782": {
+    "short_name": "HeartBench",
+    "year": 2025,
+    "family": "anthropomorphic-empathy",
+    "is_benchmark": true,
+    "note": "Probes 'core dimensions of anthropomorphic intelligence' in LLMs: cognitive empathy, affective empathy, sociopragmatic awareness etc. across multi-turn realistic scenarios.",
+    "critiques_received": [
+      "MoReBench (2025): empathy benchmarks tend toward outcome scoring; HeartBench tries to address this but procedural eval still incomplete.",
+      "CPsyExam-style: HeartBench richer than knowledge tests but smaller scale."
+    ],
+    "self_acknowledged_limits": "Authors flag English; new benchmark, lacking longitudinal validation against human therapy outcomes."
+  },
+  "10834": {
+    "short_name": "CMoralEval",
+    "year": 2024,
+    "family": "Chinese-moral-eval",
+    "is_benchmark": true,
+    "note": "Yu et al. Chinese moral evaluation benchmark — 30K+ items grounded in Chinese cultural-moral fabric (儒家、仁义礼智信、地域族群伦理). Multi-perspective annotations.",
+    "critiques_received": [
+      "NaVAB (2025): Chinese-only; cross-national value alignment unaddressed.",
+      "MoReBench (2025): outcome-style choice items dominate.",
+      "MFT critique: doesn't map to MFQ axes for cross-comparison."
+    ],
+    "self_acknowledged_limits": "Authors note cultural specificity may limit generalization; some categories rely on subjective interpretation."
+  },
+  "12862": {
+    "short_name": "MoReBench",
+    "year": 2025,
+    "family": "procedural-pluralistic-moral",
+    "is_benchmark": true,
+    "note": "Chiu et al. MoReBench: Evaluates **procedural** and **pluralistic** moral reasoning, not just outcomes. Tests whether models can articulate steps, consider multiple ethical frameworks, handle disagreement.",
+    "critiques_received": [
+      "Recent: still English; small-scale; reliance on LLM-as-judge to score reasoning chains has variance."
+    ],
+    "self_acknowledged_limits": "Authors note LLM-judge calibration; English; reasoning chain evaluation is labor-intensive."
+  },
+  "12869": {
+    "short_name": "HumaniBench",
+    "year": 2025,
+    "family": "human-centric-multimodal",
+    "is_benchmark": true,
+    "note": "Raza et al. Human-centric framework for multimodal models. Evaluates models on alignment with human values, fairness, harm in image+text scenarios.",
+    "critiques_received": [
+      "VITAL (2025): healthcare alignment more specialized.",
+      "TrustMH-Bench (2026): broader trustworthiness coverage needed."
+    ],
+    "self_acknowledged_limits": "Authors note English; multimodal subset limited; LLM-as-judge dependency."
+  },
+  "12951": {
+    "short_name": "VITAL",
+    "year": 2025,
+    "family": "healthcare-pluralistic-alignment",
+    "is_benchmark": true,
+    "note": "Shetty et al. VITAL — 13K+ items for benchmarking pluralistic alignment in healthcare. Tests model's ability to honor multiple stakeholder values (patient/clinician/family/public) under conflict.",
+    "critiques_received": [
+      "Recent benchmark; few public critiques. Healthcare specificity may limit cross-domain transfer."
+    ],
+    "self_acknowledged_limits": "Authors note clinical specificity; English; pluralistic disagreement scoring is heuristic."
+  },
+  "12964": {
+    "short_name": "Educator-LLM",
+    "year": 2025,
+    "family": "professional-role-moral",
+    "is_benchmark": true,
+    "note": "Jiang et al. (EMNLP 2025): Educator-role moral and normative LLM profiling. Tests whether LLMs uphold profession-specific ethical norms (e.g., teacher confidentiality, child protection).",
+    "critiques_received": [
+      "TrustMH-Bench (2026): single-role benchmark; multi-stakeholder needed.",
+      "VITAL (2025): healthcare profession parallel; cross-profession comparison absent."
+    ],
+    "self_acknowledged_limits": "Authors note role-specific limits; no longitudinal validation."
+  },
+  "13481": {
+    "short_name": "NaVAB",
+    "year": 2025,
+    "family": "multinational-value-alignment",
+    "is_benchmark": true,
+    "note": "Shi et al. Multi-national value alignment: 5-country (US/UK/CN/FR/DE) news + value statements; tests whether LLMs align with national mainstream values across abortion legalization, immigration, etc.",
+    "critiques_received": [
+      "CMoralEval (2024): mainstream-value framing may suppress minority moral voices.",
+      "MoReBench (2025): national-value alignment is outcome-focused; procedural pluralism untested.",
+      "MFQ-2 (2023): MFQ axes provide better psychometric scaffold than news-derived statements."
+    ],
+    "self_acknowledged_limits": "Authors note 5-country sample; mainstream-stance label suppresses pluralism; news source biases."
+  },
+  "13502": {
+    "short_name": "TrustMH-Bench",
+    "year": 2026,
+    "family": "trustworthiness-mental-health",
+    "is_benchmark": true,
+    "note": "Xiong et al. Comprehensive trustworthiness benchmark for LLMs in mental-health contexts. Combines safety (crisis), professionalism (boundary), empathy (cognitive+affective), pluralism, refusal/over-refusal.",
+    "critiques_received": [
+      "Recent (preprint); few critiques yet.",
+      "HeartBench (2025) / SMILE (2024) precursors: TrustMH-Bench broader but less deep on each axis."
+    ],
+    "self_acknowledged_limits": "Authors note Chinese+English; LLM-as-judge dependency; mental-health professional validation incomplete."
+  }
+}
