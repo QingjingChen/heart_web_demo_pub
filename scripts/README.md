@@ -4,6 +4,14 @@ This directory keeps only the final workbook scripts from the working folder.
 Earlier one-off scoring, calibration, backup, and raw-output scripts were not
 carried into the public demo repository.
 
+The workbook these scripts operate on (`workbooks/科技伦理toolkit.xlsx`) is
+mirrored from the canonical resource repository:
+<https://github.com/QingjingChen/AI-Ethics-benchmark>. CSV exports of every
+sheet (104-row benchmark distribution, 48-row tool toolbox, 14-rubric
+anchors, 140-row diagnosis table, citation verification) live under
+`workbook/exports/` in that repository and are usually more convenient than
+re-running these extraction scripts from scratch.
+
 ## Kept
 
 - `extract_lineage_views.py` builds lineage and external-view additions with

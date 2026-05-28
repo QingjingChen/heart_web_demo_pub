@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "HEART Benchmark Auditor — Web Demo"
+message: "Author and citation metadata will be added at release time. Cite the resource repository for the underlying methodology."
+type: software
+authors:
+  - name: "Anonymous Authors"
+repository-code: "https://github.com/QingjingChen/heart_web_demo_pub"
+url: "https://github.com/QingjingChen/heart_web_demo_pub"
+abstract: >
+  Interactive front-end for the HEART benchmark-revision workflow. The user
+  uploads a benchmark file, the demo audits it against 14 policy-grounded
+  audit rubrics, recommends one or more of 6 repair tools from the HEART
+  Workbox, and drafts per-sample adaptation examples in the user-specified
+  target domain. Companion to the resource repository at
+  https://github.com/QingjingChen/AI-Ethics-benchmark.
+keywords:
+  - AI ethics
+  - benchmark revision
+  - evaluation validity
+  - policy alignment
+  - rubric audit
+  - HEART
+  - web demo
+license: MIT
+license-url: "https://opensource.org/license/MIT"
+version: "1.0.0"
+date-released: "2026-05-28"
+references:
+  - type: software
+    title: "HEART resource repository"
+    repository-code: "https://github.com/QingjingChen/AI-Ethics-benchmark"
