@@ -12,7 +12,7 @@ abstract: >
   audit rubrics, recommends one or more of 6 repair tools from the HEART
   Workbox, and drafts per-sample adaptation examples in the user-specified
   target domain. Companion to the resource repository at
-  https://github.com/QingjingChen/AI-Ethics-benchmark.
+  https://github.com/QingjingChen/Heart.
 keywords:
   - AI ethics
   - benchmark revision
@@ -28,4 +28,4 @@ date-released: "2026-05-28"
 references:
   - type: software
     title: "HEART resource repository"
-    repository-code: "https://github.com/QingjingChen/AI-Ethics-benchmark"
+    repository-code: "https://github.com/QingjingChen/Heart"

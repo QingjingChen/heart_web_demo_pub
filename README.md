@@ -3,7 +3,7 @@
 An interactive front-end for the **HEART** benchmark-revision workflow. This
 demo is the runnable companion to the canonical resource repository:
 
-> **Resource repository:** <https://github.com/QingjingChen/AI-Ethics-benchmark>
+> **Resource repository:** <https://github.com/QingjingChen/Heart>
 > — 5 policy-grounded dimensions, 14 audit rubrics, a 6-tool repair workbox,
 > and a meta-review of 103 benchmark / survey papers.
 
@@ -83,12 +83,12 @@ local DashScope key files are deliberately excluded.
 ## License
 
 MIT — see [LICENSE](LICENSE). The workbook mirrored into `workbooks/` is
-licensed CC-BY-4.0 in the [resource repository](https://github.com/QingjingChen/AI-Ethics-benchmark).
+licensed CC-BY-4.0 in the [resource repository](https://github.com/QingjingChen/Heart).
 
 ## Citation
 
 A companion paper describing the HEART methodology, rubric scheme, and
 workbox is in preparation. Final citation, venue, and DOI metadata will be
 added to [`CITATION.cff`](CITATION.cff) and to the
-[resource repository](https://github.com/QingjingChen/AI-Ethics-benchmark)
+[resource repository](https://github.com/QingjingChen/Heart)
 at release time.
