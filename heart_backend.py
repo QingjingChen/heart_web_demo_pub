@@ -18,6 +18,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from openpyxl import load_workbook
 
+import heart_index_loader as HIDX
+
 try:
     from openai import OpenAI
 except Exception:  # pragma: no cover - optional local dependency
@@ -869,6 +871,21 @@ def _tool_kind_from_toolbox(row: dict[str, str]) -> str:
     return "human"
 
 
+def _index_match_for_tool(title: str) -> tuple[str | None, dict[str, Any] | None]:
+    """Best-effort match of an xlsx toolbox row to a heart_index tool entry."""
+    if not title:
+        return None, None
+    idx = HIDX.get_index()
+    title_low = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
+    for tid, t in idx.get("tools", {}).items():
+        canon = (t.get("canonical_name") or t.get("name") or "").lower()
+        if canon and canon in title_low:
+            return tid, t
+        if tid.replace("_", " ") in title_low:
+            return tid, t
+    return None, None
+
+
 def recommend_tools(label: str | list[str], rubrics: list[dict[str, Any]]) -> list[dict[str, Any]]:
     weak = {r["name"] for r in rubrics if r["score"] <= 2}
     if not weak:
@@ -894,12 +911,25 @@ def recommend_tools(label: str | list[str], rubrics: list[dict[str, Any]]) -> li
         problem = row.get("解决的 benchmark 问题", "")
         limits = row.get("局限", "")
         evidence = row.get("代表来源 / 论文", "")
+        tool_id, idx_tool = _index_match_for_tool(title)
+        source = HIDX.provenance("tools", tool_id) if tool_id else "Rubric-targeted optimization"
         out.append(
             {
                 "title": title,
                 "confidence": f"{min(0.95, 0.58 + confidence * 0.04):.2f}",
                 "kind": _tool_kind_from_toolbox(row),
-                "source": "Rubric-targeted optimization",
+                "source": source,
+                "tool_id": tool_id,
+                "output_fields": idx_tool.get("output_fields", []) if idx_tool else [],
+                "index_evidence": [
+                    {
+                        "rubric_id": r.get("rubric_id"),
+                        "how": r.get("how"),
+                        "bench_ref": r.get("bench_ref"),
+                    }
+                    for r in (idx_tool.get("rubrics_improved", []) if idx_tool else [])
+                    if r.get("rubric_name") in target_rubrics
+                ],
                 "text": f"{core} Problem addressed: {problem}".strip()[:760],
                 "action": (
                     "Recommended because these low-scoring rubrics need targeted repair: "
@@ -1580,13 +1610,102 @@ def index() -> FileResponse:
 
 @app.get("/api/health")
 def health() -> dict[str, Any]:
+    idx = HIDX.get_index()
     return {
         "ok": True,
         "rubrics": len(RUBRIC_STANDARDS),
         "tools": len(TOOL_ROWS),
         "domains": list(DOMAIN_GUIDES),
         "workbook": str(WORKBOOK_PATH),
+        "heart_index": {
+            "loaded": "error" not in idx,
+            "version": idx.get("version"),
+            "rubrics": len(idx.get("rubrics", {})),
+            "tools_in_index": len(idx.get("tools", {})),
+            "domain_templates": list(idx.get("domain_templates", {}).keys()),
+            "diagnosis_rules": len(idx.get("diagnosis_rules", [])),
+            "path": str(HIDX.INDEX_PATH),
+            "error": idx.get("error"),
+        },
     }
+
+
+# ---------- HEART index endpoints (constraint + retrieval layer) ----------
+
+@app.get("/api/index")
+def get_index() -> JSONResponse:
+    """Return the full heart_index.json so the frontend can populate dropdowns,
+    show provenance pointers, and let the user override recommendations.
+    """
+    return JSONResponse(HIDX.get_index())
+
+
+@app.get("/api/index/domain_templates")
+def list_domain_templates() -> JSONResponse:
+    idx = HIDX.get_index()
+    out = {}
+    for did, tmpl in idx.get("domain_templates", {}).items():
+        out[did] = {
+            "domain_id": did,
+            "name": tmpl.get("name"),
+            "purpose": tmpl.get("purpose"),
+            "required_fields": tmpl.get("required_fields", []),
+            "normative_anchors": tmpl.get("normative_anchors", []),
+            "failure_modes": tmpl.get("failure_modes", []),
+            "action_labels": tmpl.get("action_labels", []),
+            "grounding_bench_refs": tmpl.get("grounding_bench_refs", []),
+            "source": HIDX.provenance("domain_templates", did),
+        }
+    return JSONResponse({"domain_templates": out})
+
+
+@app.post("/api/index/diagnose")
+async def index_diagnose(request: Request) -> JSONResponse:
+    """Pure rule-based diagnosis using the index — no LLM call.
+
+    Body: {"text": "<benchmark profile or paper extract>"}
+    Returns matched weak triggers + recommended tools per rubric, each with a
+    `source` provenance pointer.
+    """
+    try:
+        payload = await request.json()
+    except Exception as exc:
+        return JSONResponse({"error": f"Body must be JSON: {exc}"}, status_code=400)
+    text = str(payload.get("text") or "")
+    domain_id = payload.get("domain_id")
+    matches = HIDX.match_triggers(text)
+    by_rubric: dict[str, list[dict[str, Any]]] = {}
+    for m in matches:
+        by_rubric.setdefault(m["rubric_id"], []).append(m)
+    rubric_findings = []
+    for rid, ms in by_rubric.items():
+        rub = HIDX.rubric(rid) or {}
+        rubric_findings.append({
+            "rubric_id": rid,
+            "rubric_name": rub.get("name", rid),
+            "matched_triggers": ms,
+            "recommended_tools": HIDX.recommend_tools_for_rubric(rid, k=5, domain=domain_id),
+            "source": HIDX.provenance("rubrics", rid),
+        })
+    return JSONResponse({
+        "findings": rubric_findings,
+        "n_matches": len(matches),
+        "domain_id": domain_id,
+    })
+
+
+@app.post("/api/index/metrics")
+async def index_metrics(request: Request) -> JSONResponse:
+    """Compute the 6 LLM-free quality metrics on a list of revised items."""
+    try:
+        payload = await request.json()
+    except Exception as exc:
+        return JSONResponse({"error": f"Body must be JSON: {exc}"}, status_code=400)
+    items = payload.get("revised_items") or []
+    if not isinstance(items, list):
+        return JSONResponse({"error": "revised_items must be a list of dicts."}, status_code=400)
+    domain_id = payload.get("domain_id")
+    return JSONResponse(HIDX.compute_metrics(items, domain_id))
 
 
 @app.get("/api/schema")
